@@ -22,7 +22,7 @@
         class="py-4 text-center text--secondary"
         cols="12"
       >
-        &copy; 2020 Morico
+        <small>&copy; 2020 Morico</small>
       </v-col>
     </v-row>
   </v-footer>

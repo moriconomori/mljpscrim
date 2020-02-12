@@ -3,50 +3,54 @@
     <v-card
       class="mx-auto pt-2"
     >
-      <v-card-title class="justify-center subtitle-1 pb-1 px-0">
-        次回のスクリム予定<span class="accent--text pl-4">2/11(火) 22:00</span>
+      <v-card-title class="justify-center subtitle-1 pb-1 px-0 pt-0">
+        <span class="mr-2">次のスクリム</span><span class="accent--text">2/11(火) 22:00</span>
       </v-card-title>
 
       <v-card-text class="px-0 text--primary">
         <div
           class="d-flex justify-center align-center"
         >
-          <div>
-            <v-avatar
-              size="36"
-              color="indigo"
-              tile
-            >
-              A
-            </v-avatar>
-          </div>
-          <div class="pl-2">
-            <div class="caption orange--text">
+          <div class="pr-1">
+            <div class="text-right caption orange--text">
               [TeA]
             </div>
             <div>
               Team ABCDE
             </div>
           </div>
-          <div class="px-4">
-            VS
-          </div>
-          <div class="pr-2">
-            <div class="caption orange--text">
-              [TeX]
-            </div>
-            <div>
-              Team XYZAB
-            </div>
-          </div>
           <div>
             <v-avatar
               size="36"
               color="indigo"
               tile
+              class="mx-1"
+            >
+              A
+            </v-avatar>
+          </div>
+
+          <div class="mx-2">
+            VS
+          </div>
+
+          <div>
+            <v-avatar
+              size="36"
+              color="indigo"
+              tile
+              class="mx-1"
             >
               X
             </v-avatar>
+          </div>
+          <div class="pl-1">
+            <div class="text-left caption orange--text">
+              [TeX]
+            </div>
+            <div>
+              Team XYZAB
+            </div>
           </div>
         </div>
       </v-card-text>
