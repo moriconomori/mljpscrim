@@ -13,15 +13,20 @@
           :key="team.name"
           class="teams-list-item"
         >
-          <v-card tile>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
-            <v-card-subtitle class="orange--text">
-              [{{ team.tag }}]
-            </v-card-subtitle>
-            <v-card-title>
-              {{ team.name }}
-            </v-card-title>
-          </v-card>
+          <router-link
+            tag="div"
+            :to="{ name: 'team', params: { id: team.id }}"
+          >
+            <v-card tile>
+              <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+              <v-card-subtitle class="orange--text">
+                [{{ team.tag }}]
+              </v-card-subtitle>
+              <v-card-title>
+                {{ team.name }}
+              </v-card-title>
+            </v-card>
+          </router-link>
         </div>
       </div>
     </div>
@@ -37,26 +42,32 @@ export default {
   data: () => ({
     teams: [
       {
+        id: "aiueo",
         name: "Team AAA",
         tag: "TA",
       },
       {
+        id: "kakikukeko",
         name: "Team BBB",
         tag: "TB",
       },
       {
+        id: "ccccc",
         name: "Team CCC",
         tag: "TC",
       },
       {
+        id: "dddddddd",
         name: "Team DDD",
         tag: "TD",
       },
       {
+        id: "eeeeeee",
         name: "Team EEE",
         tag: "TE",
       },
       {
+        id: "ffffffff",
         name: "Team FFF",
         tag: "TF",
       },

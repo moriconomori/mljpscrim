@@ -1,30 +1,26 @@
 <template>
-  <v-footer padless>
-    <v-row
-      justify="center"
-      no-gutters
-    >
-      <v-btn
+  <v-footer
+    padless
+    class="text--secondary"
+  >
+    <v-container class="py-2 px-12 d-flex justify-space-around">
+      <router-link
         v-for="link in links"
         :key="link.text"
-        text
-        rounded
-        class="my-2"
+        tag="span"
+        :to="link.to"
       >
-        <router-link
-          :to="link.to"
-          class="text--secondary"
-        >
-          {{ link.text }}
-        </router-link>
-      </v-btn>
-      <v-col
-        class="py-4 text-center text--secondary"
-        cols="12"
+        {{ link.text }}
+      </router-link>
+    </v-container>
+
+    <v-container class="pt-0 pb-2">
+      <div
+        class="text-center"
       >
         <small>&copy; 2020 Morico</small>
-      </v-col>
-    </v-row>
+      </div>
+    </v-container>
   </v-footer>
 </template>
 
@@ -48,9 +44,3 @@ export default {
   }),
 };
 </script>
-
-<style>
-footer a {
-  text-decoration: none;
-}
-</style>
