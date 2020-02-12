@@ -7,6 +7,9 @@ Vue.use(Vuetify);
 export default new Vuetify({
   lang: {
     locales: { ja },
-    current: "ja"
-  }
+    current: "ja",
+  },
+  theme: {
+    dark: true,
+  },
 });
