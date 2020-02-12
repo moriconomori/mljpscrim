@@ -1,32 +1,65 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      hide-on-scroll
+    >
+      <div class="d-flex">
+        <router-link
+          to="/"
+          tag="button"
+          class="orange--text px-0 v-btn v-btn--text"
+        >
+          MLJP SCRIM
+        </router-link>
+      </div>
+    </v-app-bar>
+
+    <v-content>
+      <router-view />
+      <Footer />
+    </v-content>
+
+    <v-bottom-navigation
+      app
+      grow
+      color="accent"
+    >
+      <v-btn to="/">
+        TOP
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
+      <v-btn to="/teams">
+        クラン & 選手
+        <v-icon>mdi-account-group</v-icon>
+      </v-btn>
+
+      <v-btn>
+        戦績
+        <v-icon>mdi-trophy</v-icon>
+      </v-btn>
+
+      <v-btn>
+        お知らせ
+        <v-icon>mdi-newspaper</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Footer from "@/components/Footer";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    Footer,
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    // activeBtn: true,
+  }),
+};
+</script>
