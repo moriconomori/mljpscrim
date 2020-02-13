@@ -32,7 +32,7 @@
 
     <v-card
       v-for="member in team[teamId].members"
-      :key="member"
+      :key="member.name"
       class="mx-auto px-3 pt-1 pb-2 mb-4"
       outlined
     >
