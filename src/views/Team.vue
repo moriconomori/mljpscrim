@@ -37,14 +37,14 @@
       outlined
     >
       <div class="mb-1">
-        <span class="headline">
-          {{ member }}
-        </span>
+        <span class="headline">{{ member.name }}</span>
         <v-chip
           x-small
           label
           color="orange"
           text-color="white"
+          class="ml-2"
+          v-if="member.isLeader"
         >
           LEADER
         </v-chip>
@@ -92,27 +92,69 @@ export default {
     teamId: "",
     team: {
       aiueo: {
-        members: ["ichiro1", "jiro1", "saburo1", "shiro1", "goro1", "111"],
+        members: [
+          { name: "ichiro1", isLeader: true },
+          { name: "jiro1", isLeader: false },
+          { name: "saburo1", isLeader: false },
+          { name: "shiro1", isLeader: false },
+          { name: "goro1", isLeader: false },
+          { name: "666666666", isLeader: false },
+        ],
         tag: "ai",
       },
       kakikukeko: {
-        members: ["ichiro2", "jiro2", "saburo2", "shiro2", "goro2", "2222"],
+        members: [
+          { name: "ichiro2", isLeader: false },
+          { name: "jiro2", isLeader: true },
+          { name: "saburo2", isLeader: false },
+          { name: "shiro2", isLeader: false },
+          { name: "goro2", isLeader: false },
+          { name: "hoge", isLeader: false },
+        ],
         tag: "ka",
       },
       ccccc: {
-        members: ["ichiro3", "jiro3", "saburo3", "shiro3", "goro3", "333"],
+        members: [
+          { name: "ichiro3", isLeader: false },
+          { name: "jiro3", isLeader: false },
+          { name: "saburo3", isLeader: true },
+          { name: "shiro3", isLeader: false },
+          { name: "goro3", isLeader: false },
+          { name: "666666663", isLeader: false },
+        ],
         tag: "cc",
       },
       dddddddd: {
-        members: ["ichiro4", "jiro4", "saburo4", "shiro4", "goro4", "4444"],
+        members: [
+          { name: "ichiro4", isLeader: false },
+          { name: "jiro4", isLeader: false },
+          { name: "saburo4", isLeader: false },
+          { name: "shiro4", isLeader: true },
+          { name: "goro4", isLeader: false },
+          { name: "666666664", isLeader: false },
+        ],
         tag: "dd",
       },
       eeeeeee: {
-        members: ["ichiro5", "jiro5", "saburo5", "shiro5", "goro5", "55555"],
+        members: [
+          { name: "ichiro5", isLeader: false },
+          { name: "jiro5", isLeader: false },
+          { name: "saburo5", isLeader: false },
+          { name: "shiro5", isLeader: false },
+          { name: "goro5", isLeader: true },
+          { name: "666666665", isLeader: false },
+        ],
         tag: "ee",
       },
       ffffffff: {
-        members: ["ichiro6", "jiro6", "saburo6", "shiro6", "goro6", "666666"],
+        members: [
+          { name: "ichiro6", isLeader: false },
+          { name: "jiro6", isLeader: false },
+          { name: "saburo6", isLeader: false },
+          { name: "shiro6", isLeader: false },
+          { name: "goro6", isLeader: false },
+          { name: "666666666", isLeader: true },
+        ],
         tag: "f2",
       },
     },

@@ -13,20 +13,18 @@
           :key="team.name"
           class="teams-list-item"
         >
-          <router-link
-            tag="div"
+          <v-card
+            tile
             :to="{ name: 'team', params: { id: team.id }}"
           >
-            <v-card tile>
-              <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
-              <v-card-subtitle class="orange--text">
-                [{{ team.tag }}]
-              </v-card-subtitle>
-              <v-card-title>
-                {{ team.name }}
-              </v-card-title>
-            </v-card>
-          </router-link>
+            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+            <v-card-subtitle class="orange--text">
+              [{{ team.tag }}]
+            </v-card-subtitle>
+            <v-card-title>
+              {{ team.name }}
+            </v-card-title>
+          </v-card>
         </div>
       </div>
     </div>

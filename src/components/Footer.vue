@@ -6,9 +6,9 @@
     <v-container class="py-2 px-12 d-flex justify-space-around">
       <router-link
         v-for="link in links"
-        :key="link.text"
-        tag="span"
+        :key="link.to"
         :to="link.to"
+        class="text--secondary"
       >
         {{ link.text }}
       </router-link>
@@ -44,3 +44,9 @@ export default {
   }),
 };
 </script>
+
+<style>
+.v-footer a {
+  text-decoration: none;
+}
+</style>

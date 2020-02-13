@@ -4,15 +4,12 @@
       app
       hide-on-scroll
     >
-      <div class="d-flex">
-        <router-link
-          to="/"
-          tag="button"
-          class="orange--text px-0 v-btn v-btn--text"
-        >
-          MLJP SCRIM
-        </router-link>
-      </div>
+      <router-link
+        to="/"
+        class="orange--text"
+      >
+        MLJP SCRIM
+      </router-link>
     </v-app-bar>
 
     <v-content>
@@ -68,3 +65,9 @@ export default {
   }),
 };
 </script>
+
+<style>
+.v-toolbar a {
+  text-decoration: none;
+}
+</style>
