@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="title accent--text">
+    <div class="title accent--text mb-3">
       お知らせ
     </div>
 
@@ -24,6 +24,7 @@
     </v-card>
 
     <v-btn
+      to="/news"
       block
       color="secondary"
       class="accent--text text--lighten-3"
