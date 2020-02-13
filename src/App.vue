@@ -23,22 +23,22 @@
       color="accent"
     >
       <v-btn to="/">
-        TOP
+        <span>TOP</span>
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
       <v-btn to="/teams">
-        クラン & 選手
+        <span>クラン & 選手</span>
         <v-icon>mdi-account-group</v-icon>
       </v-btn>
 
       <v-btn>
-        戦績
+        <span>戦績</span>
         <v-icon>mdi-trophy</v-icon>
       </v-btn>
 
       <v-btn>
-        お知らせ
+        <span>お知らせ</span>
         <v-icon>mdi-newspaper</v-icon>
       </v-btn>
 
@@ -46,7 +46,7 @@
         to="/about"
         class="d-none"
       >
-        About
+        <span>About</span>
         <v-icon>mdi-information</v-icon>
       </v-btn>
     </v-bottom-navigation>
@@ -77,5 +77,9 @@ export default {
 <style>
 .v-toolbar a {
   text-decoration: none;
+}
+
+.v-bottom-navigation .v-btn.v-size--default {
+  height: inherit;
 }
 </style>
