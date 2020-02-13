@@ -51,7 +51,7 @@
       </div>
 
       <div>
-        <span class="text--secondary">Role</span>
+        <span class="caption text--secondary">Role</span>
         <v-chip
           x-small
           class="ml-2"
