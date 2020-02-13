@@ -20,7 +20,9 @@
             {{ entry.date }}
           </v-card-subtitle>
         </div>
-        <v-card-text>{{ entry.body }}</v-card-text>
+        <v-card-text class="text-truncate">
+          {{ entry.body }}
+        </v-card-text>
       </v-card>
     </v-container>
   </div>
@@ -62,11 +64,3 @@ export default {
   }),
 };
 </script>
-
-<style>
-.v-card__text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-</style>
