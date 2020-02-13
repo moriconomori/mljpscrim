@@ -17,6 +17,11 @@ export default {
     News,
   },
 
+  metaInfo: {
+    title: "MLJP SCRIM",
+    titleTemplate: null,
+  },
+
   data: () => ({
     links: [
       "Home",

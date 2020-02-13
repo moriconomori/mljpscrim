@@ -79,6 +79,10 @@
 export default {
   name: 'About',
 
+  metaInfo: {
+    title: "About",
+  },
+
   data: () => ({
   }),
 }

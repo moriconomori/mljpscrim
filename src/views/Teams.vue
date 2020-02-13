@@ -39,6 +39,10 @@ export default {
 
   components: {},
 
+  metaInfo: {
+    title: "Teams",
+  },
+
   data: () => ({
     teams: [
       {

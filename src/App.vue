@@ -58,6 +58,11 @@ export default {
     Footer,
   },
 
+  metaInfo: {
+    title: "MLJP SCRIM",
+    titleTemplate: "%s | MLJP SCRIM",
+  },
+
   data: () => ({
     // activeBtn: true,
   }),

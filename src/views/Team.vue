@@ -81,6 +81,13 @@ export default {
 
   components: {},
 
+  metaInfo () {
+    return {
+      title: this.teamId,
+      titleTemplate: "%s | Teams | MLJP SCRIM",
+    }
+  },
+
   data: () => ({
     teamId: "",
     team: {
