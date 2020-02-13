@@ -41,6 +41,14 @@
         お知らせ
         <v-icon>mdi-newspaper</v-icon>
       </v-btn>
+
+      <v-btn
+        to="/about"
+        class="d-none"
+      >
+        About
+        <v-icon>mdi-information</v-icon>
+      </v-btn>
     </v-bottom-navigation>
   </v-app>
 </template>
