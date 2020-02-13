@@ -37,7 +37,7 @@
         <v-icon>mdi-trophy</v-icon>
       </v-btn>
 
-      <v-btn>
+      <v-btn to="/news">
         <span>お知らせ</span>
         <v-icon>mdi-newspaper</v-icon>
       </v-btn>
