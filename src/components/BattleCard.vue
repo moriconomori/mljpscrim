@@ -1,13 +1,14 @@
 <template>
-  <v-container>
+  <div>
     <v-card
-      class="mx-auto pt-2"
+      class="mx-auto py-3"
+      tile
     >
-      <v-card-title class="justify-center subtitle-1 pb-1 px-0 pt-0">
+      <v-card-title class="justify-center subtitle-1 pa-0">
         <span class="mr-2">次のスクリム</span><span class="accent--text">2/11(火) 22:00</span>
       </v-card-title>
 
-      <v-card-text class="px-0 text--primary">
+      <v-card-text class="pa-0 text--primary">
         <div
           class="d-flex justify-center align-center"
         >
@@ -55,7 +56,7 @@
         </div>
       </v-card-text>
     </v-card>
-  </v-container>
+  </div>
 </template>
 
 <script>
