@@ -32,7 +32,7 @@
         <v-icon>mdi-account-group</v-icon>
       </v-btn>
 
-      <v-btn>
+      <v-btn to="/stats">
         <span>戦績</span>
         <v-icon>mdi-trophy</v-icon>
       </v-btn>
