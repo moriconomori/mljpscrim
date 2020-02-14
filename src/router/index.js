@@ -31,19 +31,19 @@ const routes = [
     path: "/teams/:id",
     name: "team",
     component: () =>
-      import(/* webpackChunkName: "teams" */ "@/views/Team.vue"),
+      import(/* webpackChunkName: "team" */ "@/views/Team.vue"),
   },
   {
     path: "/stats",
     name: "stats",
     component: () =>
-      import(/* webpackChunkName: "teams" */ "@/views/Stats.vue"),
+      import(/* webpackChunkName: "stats" */ "@/views/Stats.vue"),
   },
   {
     path: "/news",
     name: "news",
     component: () =>
-      import(/* webpackChunkName: "teams" */ "@/views/News.vue"),
+      import(/* webpackChunkName: "news" */ "@/views/News.vue"),
   },
 ];
 
