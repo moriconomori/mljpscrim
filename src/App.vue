@@ -1,20 +1,16 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      dense
-      hide-on-scroll
-    >
-      <router-link
-        to="/"
-        class="accent--text"
-      >
-        MLJP SCRIM
-      </router-link>
-    </v-app-bar>
-
     <v-content>
+      <v-toolbar
+        dense
+      >
+        <v-toolbar-title class="accent--text">
+          MLJP SCRIM
+        </v-toolbar-title>
+      </v-toolbar>
+
       <router-view />
+
       <Footer />
     </v-content>
 
