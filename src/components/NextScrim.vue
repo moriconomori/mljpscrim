@@ -1,6 +1,8 @@
 <template>
   <div>
-    <base-section-header title="次のスクリム" />
+    <base-section-header>
+      次のスクリム
+    </base-section-header>
 
     <v-card
       class="mx-auto pt-0 pb-0"

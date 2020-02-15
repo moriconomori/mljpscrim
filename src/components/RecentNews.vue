@@ -1,7 +1,9 @@
 <template>
   <div class="recent-news mb-4">
     <div class="d-flex justify-space-between align-center">
-      <base-section-header title="お知らせ" />
+      <base-section-header>
+        お知らせ
+      </base-section-header>
       <v-btn
         text
         color="secondary"

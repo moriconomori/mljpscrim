@@ -1,6 +1,9 @@
 <template>
   <div>
-    <base-section-header title="MLJP SCRIM とは" />
+    <base-section-header>
+      MLJP SCRIM とは
+    </base-section-header>
+
     <v-container pt-0>
       <p>
         スクリムは scrimmage (スクリメージ) の略で、"前哨戦(ぜんしょうせん)"という意味です。

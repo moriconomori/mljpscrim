@@ -1,6 +1,5 @@
 <template>
   <div>
-    <base-section-header title="お知らせ" />
     <v-container class="pt-0">
       <v-card
         v-for="entry in news"

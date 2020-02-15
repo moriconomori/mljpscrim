@@ -24,7 +24,9 @@
       </v-card>
     </v-container>
 
-    <base-section-header title="メンバー" />
+    <base-section-header>
+      メンバー
+    </base-section-header>
     <v-container pt-0>
       <v-card
         v-for="member in team[teamId].members"

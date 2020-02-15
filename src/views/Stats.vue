@@ -1,7 +1,6 @@
 <template>
   <div>
-    <base-section-header title="戦績" />
-    <v-container class="pt-0">
+    <v-container>
       <v-card
         v-for="result in results"
         :key="result.id"

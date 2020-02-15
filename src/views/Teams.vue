@@ -1,7 +1,5 @@
 <template>
   <div>
-    <base-section-header title="クラン" />
-
     <div class="teams-container">
       <div class="teams-list">
         <div
