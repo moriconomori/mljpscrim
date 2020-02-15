@@ -1,78 +1,75 @@
 <template>
-  <v-container>
-    <h1 class="headline accent--text mb-2">
-      クラン
-    </h1>
+  <div>
+    <v-container>
+      <v-card
+        class="mx-auto"
+        tile
+      >
+        <v-row no-gutters>
+          <v-col cols="6">
+            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+          </v-col>
+          <v-col
+            cols="6"
+            class="d-flex flex-column justify-center pl-4"
+          >
+            <div class="accent--text">
+              [{{ team[teamId].tag }}]
+            </div>
+            <h1 class="headline">
+              {{ teamId }}
+            </h1>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
 
-    <v-card
-      class="mx-auto mb-4"
-      tile
-    >
-      <v-row no-gutters>
-        <v-col cols="6">
-          <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
-        </v-col>
-        <v-col
-          cols="6"
-          class="d-flex flex-column justify-center pl-4"
-        >
-          <div class="orange--text">
-            [{{ team[teamId].tag }}]
-          </div>
-          <h1 class="headline">
-            {{ teamId }}
-          </h1>
-        </v-col>
-      </v-row>
-    </v-card>
+    <base-section-header title="メンバー" />
+    <v-container pt-0>
+      <v-card
+        v-for="member in team[teamId].members"
+        :key="member.name"
+        class="mx-auto px-3 pt-1 pb-2 mb-4"
+        outlined
+      >
+        <div class="d-flex align-center mb-1">
+          <span class="headline">{{ member.name }}</span>
+          <v-chip
+            x-small
+            label
+            color="accent"
+            text-color="white"
+            class="ml-2"
+            v-if="member.isLeader"
+          >
+            LEADER
+          </v-chip>
+        </div>
 
-    <h2 class="headline accent--text mb-2">
-      メンバー
-    </h2>
-
-    <v-card
-      v-for="member in team[teamId].members"
-      :key="member.name"
-      class="mx-auto px-3 pt-1 pb-2 mb-4"
-      outlined
-    >
-      <div class="mb-1">
-        <span class="headline">{{ member.name }}</span>
-        <v-chip
-          x-small
-          label
-          color="orange"
-          text-color="white"
-          class="ml-2"
-          v-if="member.isLeader"
-        >
-          LEADER
-        </v-chip>
-      </div>
-
-      <div>
-        <span class="caption text--secondary">Role</span>
-        <v-chip
-          x-small
-          class="ml-2"
-        >
-          Fighter
-        </v-chip>
-        <v-chip
-          x-small
-          class="ml-2"
-        >
-          Mage
-        </v-chip>
-        <v-chip
-          x-small
-          class="ml-2"
-        >
-          Marksman
-        </v-chip>
-      </div>
-    </v-card>
-  </v-container>
+        <div>
+          <span class="caption text--secondary">Role</span>
+          <v-chip
+            x-small
+            class="ml-2"
+          >
+            Fighter
+          </v-chip>
+          <v-chip
+            x-small
+            class="ml-2"
+          >
+            Mage
+          </v-chip>
+          <v-chip
+            x-small
+            class="ml-2"
+          >
+            Marksman
+          </v-chip>
+        </div>
+      </v-card>
+    </v-container>
+  </div>
 </template>
 
 <script>

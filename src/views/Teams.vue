@@ -1,10 +1,6 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="headline accent--text">
-        クラン一覧
-      </h1>
-    </v-container>
+    <base-section-header title="クラン" />
 
     <div class="teams-container">
       <div class="teams-list">
@@ -18,7 +14,7 @@
             :to="{ name: 'team', params: { id: team.id }}"
           >
             <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
-            <v-card-subtitle class="orange--text">
+            <v-card-subtitle class="accent--text">
               [{{ team.tag }}]
             </v-card-subtitle>
             <v-card-title>

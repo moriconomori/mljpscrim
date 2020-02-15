@@ -1,9 +1,7 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="headline accent--text">
-        MLJP SCRIM とは
-      </h1>
+    <base-section-header title="MLJP SCRIM とは" />
+    <v-container pt-0>
       <p>
         スクリムは scrimmage (スクリメージ) の略で、"前哨戦(ぜんしょうせん)"という意味です。
         大会を本番とした時の模擬戦、練習試合になります。
@@ -14,17 +12,13 @@
         そういった大会ならではの動きを練習する為に開催されるのが”スクリム”になります。
       </p>
     </v-container>
-    <v-container>
-      <h2 class="title accent--text">
-        MLJP ルール 2020.01.25 改定
-      </h2>
-    </v-container>
 
-    <v-container>
-      <h3 class="subtitle-1 accent--text text--lighten-3">
-        参加規則
+    <base-section-header title="MLJP ルール 2020.01.25 改定" />
+    <v-container pt-0>
+      <h3 class="subtitle-1 accent--text text--lighten-2">
+        1. 参加規則
       </h3>
-      <v-divider />
+      <v-divider class="my-1" />
       <ul class="body-2">
         <li>当スクリムは 20 チームまでの参加枠とする</li>
         <li>参加チームは応募時に主要メンバーが 5 名以上現ミシックである事とする</li>
@@ -33,10 +27,10 @@
     </v-container>
 
     <v-container>
-      <h3 class="subtitle-1 accent--text text--lighten-3">
-        運用規則
+      <h3 class="subtitle-1 accent--text text--lighten-2">
+        2. 運用規則
       </h3>
-      <v-divider />
+      <v-divider class="my-1" />
       <ul class="body-2">
         <li>参加チームは最低週 1 回以上のスクリム要請を出す事とする</li>
         <li>参加要請は毎日 18:00 までに専用ディスコードにて参加可否の報告をする事とする</li>
@@ -53,10 +47,10 @@
     </v-container>
 
     <v-container>
-      <h3 class="subtitle-1 accent--text text--lighten-3">
-        当スクリム内での煽り暴言晒し
+      <h3 class="subtitle-1 accent--text text--lighten-2">
+        3. 当スクリム内での煽り暴言晒し
       </h3>
-      <v-divider />
+      <v-divider class="my-1" />
       <ul class="body-2">
         <li>当スクリム内で発生した煽り暴言晒し行為については厳しく処罰するものとする</li>
         <li>戦績報告フォームに報告欄を設置しスクリム内で発生した問題を匿名で報告出来る物とする</li>

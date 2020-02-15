@@ -2,11 +2,12 @@
   <v-app>
     <v-app-bar
       app
+      dense
       hide-on-scroll
     >
       <router-link
         to="/"
-        class="orange--text"
+        class="accent--text"
       >
         MLJP SCRIM
       </router-link>
@@ -28,7 +29,7 @@
       </v-btn>
 
       <v-btn to="/teams">
-        <span>クラン & 選手</span>
+        <span>クラン</span>
         <v-icon>mdi-account-group</v-icon>
       </v-btn>
 
@@ -79,7 +80,7 @@ export default {
   text-decoration: none;
 }
 
-.v-bottom-navigation .v-btn.v-size--default {
+.v-bottom-navigation .v-btn:not(.v-btn--round).v-size--default {
   height: inherit;
 }
 </style>

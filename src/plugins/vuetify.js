@@ -11,5 +11,10 @@ export default new Vuetify({
   },
   theme: {
     dark: true,
+    themes: {
+      dark: {
+        accent: "#daa520",
+      },
+    },
   },
 });

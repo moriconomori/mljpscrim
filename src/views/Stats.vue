@@ -1,10 +1,6 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="headline accent--text">
-        戦績
-      </h1>
-    </v-container>
+    <base-section-header title="戦績" />
     <v-container class="pt-0">
       <v-card
         v-for="result in results"
@@ -12,14 +8,22 @@
         tile
         class="mx-auto mb-3 py-1"
       >
-        <div class="text-center grey--text">
-          <v-icon class="grey--text mx-1">
-            mdi-calendar
-          </v-icon>2020/2/2(日) 22:00
-          <v-icon class="grey--text mx-1 ml-4">
+        <v-card-text class="text-center py-0 my-1">
+          <v-icon
+            class="secondary--text text--lighten-3"
+            size="16"
+          >
+            mdi-clock-outline
+          </v-icon>
+          2020.2.11 22:00
+          <v-icon
+            class="secondary--text text--lighten-3 ml-4"
+            size="16"
+          >
             mdi-sword-cross
-          </v-icon>BO3
-        </div>
+          </v-icon>
+          BO3
+        </v-card-text>
 
         <v-divider class="my-1" />
 
@@ -40,10 +44,10 @@
               </v-avatar>
             </div>
             <div>
-              <div class="text-right caption orange--text">
+              <div class="text-right caption accent--text">
                 [TeA]
               </div>
-              <div>Team ABCDE</div>
+              <div>Team A</div>
             </div>
           </v-card>
           <v-card
@@ -68,7 +72,7 @@
               </v-avatar>
             </div>
             <div>
-              <div class="text-left caption orange--text">
+              <div class="text-left caption accent--text">
                 [TeX]
               </div>
               <div>Team XYZAB</div>
@@ -89,9 +93,9 @@
           </v-card>
           <v-card
             flat
-            class="grey--text text-center mx-2"
+            class="grey--text text-center mx-4"
           >
-            ―
+            -
           </v-card>
           <v-card
             flat

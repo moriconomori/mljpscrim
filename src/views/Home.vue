@@ -1,20 +1,20 @@
 <template>
   <div>
-    <battle-card />
-    <news />
+    <next-scrim />
+    <recent-news />
   </div>
 </template>
 
 <script>
-import BattleCard from "@/components/BattleCard";
-import News from "@/components/News";
+import NextScrim from "@/components/NextScrim";
+import RecentNews from "@/components/RecentNews";
 
 export default {
   name: "Home",
 
   components: {
-    BattleCard,
-    News,
+    NextScrim,
+    RecentNews,
   },
 
   metaInfo: {
