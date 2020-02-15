@@ -76,7 +76,13 @@ export default {
   text-decoration: none;
 }
 
-.v-bottom-navigation .v-btn:not(.v-btn--round).v-size--default {
+/* workaround for bug */
+.v-item-group.v-bottom-navigation .v-btn.v-size--default {
   height: inherit;
+}
+
+/* remove hover highlight for mobile */
+.v-btn::before {
+  background-color: inherit !important;
 }
 </style>
