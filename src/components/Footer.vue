@@ -9,6 +9,7 @@
         :key="link.to"
         :to="link.to"
         class="text--secondary"
+        v-ripple
       >
         {{ link.text }}
       </router-link>
