@@ -1,10 +1,12 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import vuetify from "./plugins/vuetify";
+import Vue from "vue"
+import router from "./router"
+import vuetify from "./plugins/vuetify"
 import VueGtag from "vue-gtag"
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import App from "./App.vue"
 
 Vue.config.productionTip = false;
 
@@ -43,6 +45,8 @@ requireComponent.keys().forEach(fileName => {
 Vue.use(VueGtag, {
   config: { id: "UA-158373345-1" },
 }, router);
+
+Vue.use(VueAxios, axios)
 
 new Vue({
   router,
