@@ -38,6 +38,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/global-components',
   ],
   /*
    ** Nuxt.js modules
