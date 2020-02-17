@@ -1,25 +1,35 @@
 <template>
-  <div>
-    <div class="teams-container">
-      <div class="teams-list">
-        <div
-          v-for="team in teams"
-          :key="team.name"
-          class="teams-list-item"
+  <div class="teams-container mt-3">
+    <div 
+      class="text-center my-12"
+      v-if="!clans"
+    >
+      <v-progress-circular
+        indeterminate
+        color="accent"
+      />
+    </div>
+    <div class="teams-list">
+      <div
+        v-for="clan in clans"
+        :key="clan.url_id"
+        class="teams-list-item"
+      >
+        <v-card
+          tile
+          :to="{ name: 'team', params: { id: clan.url_id }}"
         >
-          <v-card
-            tile
-            :to="{ name: 'team', params: { id: team.id }}"
-          >
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
-            <v-card-subtitle class="accent--text">
-              [{{ team.tag }}]
-            </v-card-subtitle>
-            <v-card-title>
-              {{ team.name }}
-            </v-card-title>
-          </v-card>
-        </div>
+          <v-img
+            eager
+            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          />
+          <v-card-subtitle class="accent--text">
+            [{{ clan.tag }}]
+          </v-card-subtitle>
+          <v-card-title>
+            {{ clan.name }}
+          </v-card-title>
+        </v-card>
       </div>
     </div>
   </div>
@@ -68,7 +78,17 @@ export default {
         tag: "TF",
       },
     ],
+
+    clans: null,
   }),
+
+  created: function () {
+    this.axios
+      .get("https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec")
+      .then((response) => {
+        this.clans = response.data;
+      });
+  },
 };
 </script>
 
