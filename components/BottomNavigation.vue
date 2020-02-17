@@ -35,4 +35,11 @@
 .v-item-group.v-bottom-navigation .v-btn.v-size--default {
   height: inherit;
 }
+
+/*
+ ** Remove hover highlights for mobile
+ */
+.v-btn::before {
+  background-color: inherit !important;
+}
 </style>
