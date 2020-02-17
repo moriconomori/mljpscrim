@@ -1,9 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    <next-scrim />
+    <recent-news />
+  </div>
 </template>
 
 <script>
+import NextScrim from '~/components/NextScrim'
+import RecentNews from '~/components/RecentNews'
+
 export default {
-  components: {},
+  components: {
+    NextScrim,
+    RecentNews,
+  },
 }
 </script>
