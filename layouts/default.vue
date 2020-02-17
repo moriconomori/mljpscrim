@@ -2,7 +2,7 @@
   <v-app>
     <v-content>
       <v-toolbar>
-        <v-toolbar-title>MLJP SCRIM</v-toolbar-title>
+        <v-toolbar-title class="accent--text">MLJP SCRIM</v-toolbar-title>
       </v-toolbar>
 
       <nuxt />
