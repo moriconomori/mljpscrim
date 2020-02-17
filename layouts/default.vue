@@ -6,14 +6,18 @@
       </v-toolbar>
 
       <nuxt />
+
+      <default-footer />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import DefaultFooter from '~/components/DefaultFooter.vue'
+
 export default {
-  data() {
-    return {}
+  components: {
+    DefaultFooter,
   },
 }
 </script>
