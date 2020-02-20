@@ -1,11 +1,11 @@
 <template>
-  <v-bottom-navigation app grow color="accent">
+  <v-bottom-navigation :value="activeBtn" app grow color="accent">
     <v-btn to="/">
       <span>TOP</span>
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
-    <v-btn to="/teams">
+    <v-btn to="/teams" value="clan">
       <span>クラン</span>
       <v-icon>mdi-account-group</v-icon>
     </v-btn>
@@ -26,6 +26,16 @@
     </v-btn>
   </v-bottom-navigation>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      activeBtn: '',
+    }
+  },
+}
+</script>
 
 <style scoped>
 /*
