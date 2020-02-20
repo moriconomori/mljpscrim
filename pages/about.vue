@@ -3,7 +3,6 @@
     <section-header>
       MLJP SCRIM とは
     </section-header>
-
     <v-container pt-0>
       <p>
         スクリムは scrimmage (スクリメージ)
@@ -17,7 +16,9 @@
       </p>
     </v-container>
 
-    <base-section-header title="MLJP ルール 2020.01.25 改定" />
+    <section-header>
+      MLJP ルール 2020.01.25 改定
+    </section-header>
     <v-container pt-0>
       <h3 class="subtitle-1 accent--text text--lighten-2">
         1. 参加規則
