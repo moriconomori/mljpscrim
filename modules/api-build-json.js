@@ -14,6 +14,11 @@ export default async function() {
       url:
         'https://script.google.com/macros/s/AKfycbxlbEeWkJtQJaEIbKuuudYHcSXv_MmKSDK1zewcmNU_gwKyg5Y/exec',
     },
+    {
+      fileName: 'next_scrim.json',
+      url:
+        'https://script.google.com/macros/s/AKfycbwOkwCt2nIyKLpJnR68Unl6UuovCEFevEZQ-ZPIjpdMhbCA9dnd/exec',
+    },
   ]
 
   for (let i = 0; i < data.length; i++) {
