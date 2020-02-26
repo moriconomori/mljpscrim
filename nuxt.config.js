@@ -66,18 +66,6 @@ export default {
   },
   googleAnalytics: {
     id: 'UA-158373345-1',
-    debug: {
-      enabled: true,
-    },
-    autoTracking: {
-      pageviewTemplate: (route) => {
-        return {
-          page: route.path,
-          title: window.document.title,
-          location: window.location.href,
-        }
-      },
-    },
   },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
