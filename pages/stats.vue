@@ -135,5 +135,11 @@ export default {
       }
     },
   },
+
+  head() {
+    return {
+      title: 'Stats',
+    }
+  },
 }
 </script>

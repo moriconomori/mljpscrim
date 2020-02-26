@@ -91,6 +91,12 @@ export default {
     )
     this.team = team[id]
   },
+
+  head() {
+    return {
+      title: this.team.teamInfo.uid + ' | Teams',
+    }
+  },
 }
 </script>
 

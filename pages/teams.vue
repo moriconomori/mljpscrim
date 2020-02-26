@@ -37,6 +37,12 @@ export default {
     )
     this.clans = clans
   },
+
+  head() {
+    return {
+      title: 'Teams',
+    }
+  },
 }
 </script>
 

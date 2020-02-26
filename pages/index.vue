@@ -14,5 +14,12 @@ export default {
     NextScrim,
     RecentNews,
   },
+
+  head() {
+    return {
+      titleTemplate: null,
+      title: 'MLJP SCRIM',
+    }
+  },
 }
 </script>

@@ -38,5 +38,11 @@ export default {
       this.news = news
     }
   },
+
+  head() {
+    return {
+      title: 'News',
+    }
+  },
 }
 </script>
