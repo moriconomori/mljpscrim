@@ -19,6 +19,11 @@ export default async function() {
       url:
         'https://script.google.com/macros/s/AKfycbwOkwCt2nIyKLpJnR68Unl6UuovCEFevEZQ-ZPIjpdMhbCA9dnd/exec',
     },
+    {
+      fileName: 'stats.json',
+      url:
+        'https://script.google.com/macros/s/AKfycbzHGIXhIr70kYpljKadfT_XMxBWo9wGSW73n9XbuhZi8uPFlyw/exec',
+    },
   ]
 
   for (let i = 0; i < data.length; i++) {
