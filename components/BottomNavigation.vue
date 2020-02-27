@@ -1,11 +1,11 @@
 <template>
-  <v-bottom-navigation :value="activeBtn" app grow color="accent">
+  <v-bottom-navigation app grow color="accent">
     <v-btn to="/">
       <span>TOP</span>
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
-    <v-btn to="/teams" value="clan">
+    <v-btn to="/teams">
       <span>クラン</span>
       <v-icon>mdi-account-group</v-icon>
     </v-btn>
@@ -24,18 +24,10 @@
       <span>About</span>
       <v-icon>mdi-information</v-icon>
     </v-btn>
+
+    <v-btn to="/contactus" class="d-none" />
   </v-bottom-navigation>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      activeBtn: '',
-    }
-  },
-}
-</script>
 
 <style scoped>
 /*

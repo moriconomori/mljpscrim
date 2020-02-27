@@ -23,12 +23,12 @@ export default {
   data: () => ({
     links: [
       {
-        text: 'TOP',
-        to: '/',
-      },
-      {
         text: 'MLJP SCRIM とは',
         to: '/about',
+      },
+      {
+        text: 'お問い合わせ',
+        to: '/contactus',
       },
     ],
   }),
