@@ -2,7 +2,7 @@
   <div class="teams-container mt-3">
     <div v-if="clans.length" class="teams-list">
       <div v-for="clan in clans" :key="clan.uid" class="teams-list-item">
-        <v-card tile :to="'team/' + clan.uid">
+        <v-card tile :to="'teams/' + clan.uid">
           <v-img eager src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
           <v-card-subtitle class="accent--text">
             [{{ clan.tag }}]

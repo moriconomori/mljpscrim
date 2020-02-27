@@ -27,7 +27,7 @@
           flat
           width="100%"
           class="d-flex flex-row-reverse align-center"
-          :to="'team/' + nextScrim.teamLeftInfo.uid"
+          :to="'teams/' + nextScrim.teamLeftInfo.uid"
         >
           <div>
             <v-avatar size="36" color="indigo" tile class="ml-2">
@@ -51,7 +51,7 @@
           flat
           width="100%"
           class="d-flex align-center"
-          :to="'team/' + nextScrim.teamRightInfo.uid"
+          :to="'teams/' + nextScrim.teamRightInfo.uid"
         >
           <div>
             <v-avatar size="36" color="indigo" tile class="mr-2">

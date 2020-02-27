@@ -25,7 +25,7 @@
           flat
           width="100%"
           class="d-flex flex-row-reverse align-center"
-          :to="'team/' + stat.teamInfoLeft.uid"
+          :to="'teams/' + stat.teamInfoLeft.uid"
         >
           <div>
             <v-avatar size="36" color="indigo" tile class="ml-2">
@@ -49,7 +49,7 @@
           flat
           width="100%"
           class="d-flex align-center"
-          :to="'team/' + stat.teamInfoRight.uid"
+          :to="'teams/' + stat.teamInfoRight.uid"
         >
           <div>
             <v-avatar size="36" color="indigo" tile class="mr-2">
