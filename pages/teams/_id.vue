@@ -15,6 +15,9 @@
         </v-col>
       </v-row>
     </v-card>
+    <div class="text-right caption text--secondary mr-1">
+      参加日 {{ team.teamInfo.joinedAt }}
+    </div>
 
     <section-header>
       メンバー
