@@ -1,9 +1,11 @@
 <template>
   <div class="teams-container mt-3">
-    <div v-if="clans.length" class="teams-list">
+    <div class="teams-list">
       <div v-for="clan in clans" :key="clan.uid" class="teams-list-item">
         <v-card tile :to="'teams/' + clan.uid">
-          <v-img eager src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+          <v-sheet color="indigo" tile>
+            <v-img eager :src="getLogoImage(clan.logoUrl)" />
+          </v-sheet>
           <v-card-subtitle class="accent--text">
             [{{ clan.tag }}]
           </v-card-subtitle>
@@ -36,6 +38,16 @@ export default {
       'https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec'
     )
     this.clans = clans
+  },
+
+  methods: {
+    getLogoImage(logoUrl) {
+      const path = '/imgs/logos/'
+      if (!logoUrl) {
+        return path + 'default.png'
+      }
+      return path + logoUrl + '.jpg'
+    },
   },
 
   head() {

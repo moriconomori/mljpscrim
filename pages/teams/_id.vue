@@ -3,11 +3,13 @@
     <v-card class="mx-auto" tile>
       <v-row no-gutters>
         <v-col cols="5">
-          <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+          <v-sheet color="indigo" tile>
+            <v-img :src="getLogoImage(team.teamInfo.logoUrl)" />
+          </v-sheet>
         </v-col>
         <v-col class="d-flex flex-column justify-center pl-4">
           <div class="accent--text">[{{ team.teamInfo.tag }}]</div>
-          <h1 class="headline">
+          <h1 class="headline team__name">
             {{ team.teamInfo.name }}
           </h1>
         </v-col>
@@ -92,9 +94,19 @@ export default {
     this.team = team[id]
   },
 
+  methods: {
+    getLogoImage(logoUrl) {
+      const path = '/imgs/logos/'
+      if (!logoUrl) {
+        return path + 'default.png'
+      }
+      return path + logoUrl + '.jpg'
+    },
+  },
+
   head() {
     return {
-      title: this.team.teamInfo.uid + ' | Teams',
+      title: this.team.teamInfo.name + ' | Teams',
     }
   },
 }
@@ -103,5 +115,9 @@ export default {
 <style scoped>
 .team-member-list:not(:last-child) {
   border-bottom-style: none;
+}
+
+.team__name {
+  word-break: break-all;
 }
 </style>
