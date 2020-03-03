@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import axios from 'axios'
 
 export default {
   mode: 'spa',
@@ -100,5 +101,16 @@ export default {
 
   generate: {
     subFolders: false,
+    routes() {
+      return axios
+        .get(
+          'https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec'
+        )
+        .then((res) => {
+          return res.data.map((team) => {
+            return '/teams/' + team.uid
+          })
+        })
+    },
   },
 }
