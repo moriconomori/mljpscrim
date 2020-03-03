@@ -5,70 +5,71 @@
     </section-header>
 
     <v-card
-      v-for="nextScrim in nextScrim"
-      :key="nextScrim.uid"
-      class="mx-auto pt-0 pb-0 mb-3"
+      v-for="(scrim, index) in nextScrim"
+      :key="index"
       outlined
-      tile
+      class="scrim ma-2 py-1"
     >
-      <v-card-text class="text-center py-0 my-1">
-        <v-icon class="text--secondary text--lighten-3" size="16">
-          mdi-clock-outline
-        </v-icon>
-        {{ nextScrim.date }}
-        <v-icon class="text--secondary text--lighten-3 ml-4" size="16">
-          mdi-sword-cross
-        </v-icon>
-        BO{{ nextScrim.bo }}
-      </v-card-text>
+      <div class="text-center text--secondary">
+        <v-icon size="14" class="text--secondary">mdi-clock-outline</v-icon>
+        {{ scrim.date }}
+        <v-icon size="14" class="text--secondary ml-4">mdi-sword-cross</v-icon>
+        BO{{ scrim.bo }}
+      </div>
+
       <v-divider class="my-1" />
-      <div class="d-flex justify-center align-center my-1">
-        <v-card
-          flat
-          width="100%"
-          class="d-flex flex-row-reverse align-center"
-          :to="'teams/' + nextScrim.teamLeftInfo.uid"
-        >
-          <div>
+
+      <v-row no-gutters>
+        <v-col align-self="center">
+          <v-card
+            flat
+            tile
+            class="d-flex flex-row-reverse align-center"
+            :to="'/teams/' + scrim.teamInfoLeft.uid"
+          >
             <v-avatar size="36" color="indigo" tile class="ml-2">
               <img
-                :src="nextScrim.teamLeftInfo.logoUrl"
-                :alt="nextScrim.teamLeftInfo.name"
+                :src="getLogoImage(scrim.teamInfoLeft.logoUrl)"
+                :alt="scrim.teamInfoLeft.name"
               />
             </v-avatar>
-          </div>
-          <div>
-            <div class="text-right caption accent--text">
-              [{{ nextScrim.teamLeftInfo.tag }}]
+            <div class="text-right">
+              <div class="caption accent--text">
+                [{{ scrim.teamInfoLeft.tag }}]
+              </div>
+              <div class="team__name">{{ scrim.teamInfoLeft.name }}</div>
             </div>
-            <div>{{ nextScrim.teamLeftInfo.name }}</div>
-          </div>
-        </v-card>
-        <v-card flat class="text-center mx-2 text--secondary">
-          VS
-        </v-card>
-        <v-card
-          flat
-          width="100%"
-          class="d-flex align-center"
-          :to="'teams/' + nextScrim.teamRightInfo.uid"
-        >
-          <div>
-            <v-avatar size="36" color="indigo" tile class="mr-2">
-              <img
-                :src="nextScrim.teamRightInfo.logoUrl"
-                :alt="nextScrim.teamRightInfo.name"
-              />
-            </v-avatar>
-          </div>
-          <div>
-            <div class="text-left caption accent--text">
-              [{{ nextScrim.teamRightInfo.tag }}]
+          </v-card>
+        </v-col>
+
+        <v-col align="center" align-self="center" cols="1">
+          <span class="text--secondary">VS</span>
+        </v-col>
+
+        <v-col align-self="center">
+          <v-card
+            flat
+            tile
+            class="d-flex align-center"
+            :to="'/teams/' + scrim.teamInfoRight.uid"
+          >
+            <div>
+              <v-avatar size="36" color="indigo" tile class="mr-2">
+                <img
+                  :src="getLogoImage(scrim.teamInfoRight.logoUrl)"
+                  :alt="scrim.teamInfoRight.name"
+                />
+              </v-avatar>
             </div>
-            <div>{{ nextScrim.teamRightInfo.name }}</div>
-          </div>
-        </v-card>
-      </div>
+            <div class="text-left">
+              <div class="caption accent--text">
+                [{{ scrim.teamInfoRight.tag }}]
+              </div>
+              <div class="team__name">{{ scrim.teamInfoRight.name }}</div>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-card>
   </div>
 </template>
@@ -93,5 +94,21 @@ export default {
       this.nextScrim = nextScrim
     }
   },
+
+  methods: {
+    getLogoImage(logoUrl) {
+      const path = '/imgs/logos/'
+      if (!logoUrl) {
+        return path + 'default.png'
+      }
+      return path + logoUrl + '.jpg'
+    },
+  },
 }
 </script>
+
+<style scoped>
+.next-scrim .team__name {
+  word-break: break-all;
+}
+</style>
