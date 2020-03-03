@@ -1,5 +1,5 @@
 <template>
-  <v-card class="result py-1">
+  <v-card outlined class="result py-1">
     <div class="text-center text--secondary">
       <v-icon size="14" class="text--secondary">mdi-clock-outline</v-icon>
       {{ result.date }}
