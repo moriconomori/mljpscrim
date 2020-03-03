@@ -1,27 +1,23 @@
 <template>
   <div class="news">
-    <div class="d-flex flex-column">
-      <v-card v-for="article in news" :key="article.uid" outlined tile>
-        <div class="d-flex justify-space-between">
-          <div class="subtitle-1 text-truncate pt-2 pl-4">
-            {{ article.title }}
-          </div>
-          <div class="caption text--secondary pt-2 px-4">
-            {{ article.publishedAt }}
-          </div>
-        </div>
-        <v-card-text class="news--text pt-0 mb-2">
-          {{ article.body }}
-        </v-card-text>
-      </v-card>
-    </div>
+    <news-article-summary-card
+      v-for="(article, index) in news"
+      :key="index"
+      :article="article"
+      class="ma-2"
+    />
   </div>
 </template>
 
 <script>
+import NewsArticleSummaryCard from '~/components/NewsArticleSummaryCard'
 import newsJson from '~/assets/json/news.json'
 
 export default {
+  components: {
+    NewsArticleSummaryCard,
+  },
+
   data: () => ({
     news: {
       type: Array,
