@@ -1,7 +1,7 @@
 <template>
   <v-bottom-navigation app grow color="accent">
     <v-btn to="/">
-      <span>TOP</span>
+      <span>HOME</span>
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
