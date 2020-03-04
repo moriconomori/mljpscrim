@@ -1,43 +1,43 @@
 <template>
-  <div class="teams-container mt-3">
-    <div class="teams-list">
-      <div v-for="clan in clans" :key="clan.uid" class="teams-list-item">
-        <v-card tile :to="'teams/' + clan.uid">
+  <div class="teams">
+    <v-row no-gutters class="ma-1">
+      <v-col v-for="(team, index) in teams" :key="index" cols="6" class="pa-1">
+        <v-card tile :to="'/teams/' + team.uid" height="100%">
           <v-sheet color="indigo" tile>
-            <v-img eager :src="getLogoImage(clan.logoUrl)" />
+            <v-img eager :src="getLogoImage(team.logoUrl)" />
           </v-sheet>
-          <v-card-subtitle class="accent--text">
-            [{{ clan.tag }}]
+          <v-card-subtitle class="accent--text pb-0">
+            [{{ team.tag }}]
           </v-card-subtitle>
-          <v-card-title>
-            {{ clan.name }}
+          <v-card-title class="teams__name pt-1">
+            {{ team.name }}
           </v-card-title>
         </v-card>
-      </div>
-    </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-import clansJson from '~/assets/json/teams.json'
+import teamsJson from '~/assets/json/teams.json'
 
 export default {
   data: () => ({
-    clans: {
+    teams: {
       type: Array,
     },
   }),
 
   async created() {
-    if (clansJson) {
-      this.clans = clansJson
+    if (teamsJson) {
+      this.teams = teamsJson
       return
     }
 
-    const clans = await this.$axios.$get(
+    const teams = await this.$axios.$get(
       'https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec'
     )
-    this.clans = clans
+    this.teams = teams
   },
 
   methods: {
@@ -59,26 +59,7 @@ export default {
 </script>
 
 <style scoped>
-.teams-container {
-  margin: 0 12px 0 0;
-}
-
-.teams-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.teams-list-item {
-  width: calc(50% - 12px);
-  margin: 0 0 12px 12px;
-}
-
-.v-card__subtitle {
-  padding: 8px 8px 0;
-}
-
-.v-card__title {
-  padding: 0 8px;
+.teams .teams__name {
+  line-height: 100%;
 }
 </style>
