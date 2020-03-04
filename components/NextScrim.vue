@@ -108,6 +108,10 @@ export default {
 </script>
 
 <style scoped>
+.next-scrim .v-icon {
+  vertical-align: initial;
+}
+
 .next-scrim .team__name {
   word-break: break-all;
 }
