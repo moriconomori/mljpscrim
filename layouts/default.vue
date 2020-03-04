@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-content>
-      <v-toolbar>
+      <v-app-bar>
         <v-toolbar-title class="accent--text">MLJP SCRIM</v-toolbar-title>
-      </v-toolbar>
+      </v-app-bar>
 
       <nuxt />
 
