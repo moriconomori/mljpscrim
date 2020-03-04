@@ -29,6 +29,11 @@ export default async function() {
       url:
         'https://script.google.com/macros/s/AKfycbzdg3_jf8jj5mwNYRmz8rVJ7JuVjCwhCmY7MTH0LBrmRD-4tKM/exec',
     },
+    {
+      fileName: 'news_latest.json',
+      url:
+        'https://script.google.com/macros/s/AKfycbwmFnoU79NeiTjFWjrB_myQvTEZUohJrlD9S6TTSAGROq0qLqM/exec',
+    },
   ]
 
   for (let i = 0; i < data.length; i++) {
