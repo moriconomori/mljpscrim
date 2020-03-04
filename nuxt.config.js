@@ -48,6 +48,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/device',
     '~/modules/api-build-json',
   ],
   /*
