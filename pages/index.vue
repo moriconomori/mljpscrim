@@ -1,18 +1,18 @@
 <template>
   <div>
     <next-scrim />
-    <recent-news />
+    <latest-news />
   </div>
 </template>
 
 <script>
 import NextScrim from '~/components/NextScrim'
-import RecentNews from '~/components/RecentNews'
+import LatestNews from '~/components/LatestNews'
 
 export default {
   components: {
     NextScrim,
-    RecentNews,
+    LatestNews,
   },
 
   head() {
