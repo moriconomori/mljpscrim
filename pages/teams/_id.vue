@@ -4,7 +4,7 @@
       <v-row no-gutters>
         <v-col cols="5">
           <v-sheet color="indigo" tile>
-            <v-img :src="getLogoImage(team.teamInfo.logoUrl)" />
+            <v-img eager :src="getLogoImage(team.teamInfo.logoUrl)" />
           </v-sheet>
         </v-col>
         <v-col class="d-flex flex-column justify-center pl-4">
@@ -24,48 +24,49 @@
     </section-header>
 
     <v-card
-      v-for="member in team.member"
-      :key="member.uid"
+      v-for="(member, memberIndex) in team.member"
+      :key="memberIndex"
       outlined
       tile
-      class="team-member-list mx-auto pa-2"
+      class="team-member pb-4"
     >
-      <div class="d-flex align-center mb-1">
-        <span class="headline">{{ member.name }}</span>
+      <v-card-title
+        >{{ member.name }}
         <v-chip
           v-if="member.isLeader"
           x-small
           label
           color="accent"
-          class="ml-2"
+          class="ml-4"
         >
           LEADER
         </v-chip>
-      </div>
-      <div>
-        <span class="caption text--secondary mr-1">Role</span>
+      </v-card-title>
+      <v-card-subtitle v-if="member.role" class="d-flex flex-wrap pb-0">
+        Role
         <v-chip
           v-for="role in member.role.split(',')"
           :key="role"
-          x-small
-          class="mr-2"
+          small
+          class="ml-2 mb-2"
         >
           {{ role }}
         </v-chip>
-      </div>
-      <div>
-        <div
-          v-for="link in member.links.split('\n')"
-          :key="link"
-          x-small
-          class="d-flex"
+      </v-card-subtitle>
+      <v-card-actions v-if="member.links" class="pa-0">
+        <a
+          v-for="(link, linkIndex) in member.links.split('\n')"
+          :key="linkIndex"
+          :href="link.split(' ')[1]"
+          class="ml-4"
         >
-          <v-icon class="mr-2"> mdi-{{ link.split(' ')[0] }}</v-icon>
-          <a :href="link.split(' ')[1]" class="text-truncate">
-            {{ link.split(' ')[1] }}
-          </a>
-        </div>
-      </div>
+          <v-img
+            eager
+            :src="'/imgs/icons/' + link.split(' ')[0] + '.png'"
+            width="40"
+          />
+        </a>
+      </v-card-actions>
     </v-card>
   </div>
 </template>
@@ -116,7 +117,7 @@ export default {
 </script>
 
 <style scoped>
-.team-member-list:not(:last-child) {
+.team-member:not(:last-child) {
   border-bottom-style: none;
 }
 
