@@ -100,9 +100,7 @@ export default {
       default: null,
     },
   },
-  data: () => ({
-    alignments: ['start', 'center', 'end'],
-  }),
+
   methods: {
     getResultText(isVictory) {
       if (isVictory) {
