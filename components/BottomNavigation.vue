@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation app grow color="accent">
+  <v-bottom-navigation v-if="$device.isMobile" app grow color="accent">
     <v-btn to="/">
       <span>HOME</span>
       <v-icon>mdi-home</v-icon>
