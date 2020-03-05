@@ -1,5 +1,8 @@
 <template>
   <div class="stats">
+      <v-card v-if="!stats.length" outlined class="text-center ma-2 pa-8">
+        データがありません
+      </v-card>
     <scrim-result-summary-card
       v-for="(result, index) in stats"
       :key="index"

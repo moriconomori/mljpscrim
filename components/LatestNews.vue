@@ -17,6 +17,9 @@
       </v-btn>
     </div>
 
+      <v-card v-if="!news.length" outlined class="text-center mx-2 mb-2 pa-8">
+        データがありません
+      </v-card>
     <v-card
       v-for="(article, index) in news"
       :key="index"

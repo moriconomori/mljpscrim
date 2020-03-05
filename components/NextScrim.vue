@@ -4,6 +4,9 @@
       次のスクリム
     </section-header>
 
+      <v-card v-if="!nextScrim.length" outlined class="text-center mx-2 pa-8">
+        データがありません
+      </v-card>
     <v-card
       v-for="(scrim, index) in nextScrim"
       :key="index"
