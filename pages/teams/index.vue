@@ -1,7 +1,13 @@
 <template>
   <div class="teams">
     <v-row no-gutters class="ma-1">
-      <v-col v-for="(team, index) in teams" :key="index" cols="6" class="pa-1">
+      <v-col
+        v-for="(team, index) in teams"
+        :key="index"
+        cols="6"
+        sm="3"
+        class="pa-1"
+      >
         <v-card tile :to="'/teams/' + team.uid" height="100%">
           <v-sheet color="indigo" tile>
             <v-img eager :src="getLogoImage(team.logoUrl)" />
