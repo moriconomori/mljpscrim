@@ -4,9 +4,12 @@
       次のスクリム
     </section-header>
 
+    <client-only>
       <v-card v-if="!nextScrim.length" outlined class="text-center mx-2 pa-8">
         データがありません
       </v-card>
+    </client-only>
+
     <v-card
       v-for="(scrim, index) in nextScrim"
       :key="index"

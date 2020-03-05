@@ -4,21 +4,22 @@
       <v-toolbar-title class="accent--text">MLJP SCRIM</v-toolbar-title>
 
       <v-spacer />
-
-      <div v-if="!isMobile">
-        <v-btn
-          v-for="(link, index) in links"
-          :key="index"
-          :to="link.to"
-          text
-          rounded
-          :color="isActiveRoute(link.to) ? 'accent' : ''"
-          :class="link.show ? '' : 'd-none'"
-        >
-          <v-icon>{{ link.icon }}</v-icon>
-          <span>{{ link.name }}</span>
-        </v-btn>
-      </div>
+      <client-only>
+        <div v-if="!isMobile">
+          <v-btn
+            v-for="(link, index) in links"
+            :key="index"
+            :to="link.to"
+            text
+            rounded
+            :color="isActiveRoute(link.to) ? 'accent' : ''"
+            :class="link.show ? '' : 'd-none'"
+          >
+            <v-icon>{{ link.icon }}</v-icon>
+            <span>{{ link.name }}</span>
+          </v-btn>
+        </div>
+      </client-only>
     </v-app-bar>
   </div>
 </template>
