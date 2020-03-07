@@ -1,93 +1,124 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-content>
-      <v-container>
+  <div>
+    <div v-show="loading" class="loading"></div>
+
+    <v-app v-show="!loading">
+      <v-app-bar :app="!isMobile">
+        <v-toolbar-title>
+          MLJP SCRIM
+        </v-toolbar-title>
+
+        <v-spacer />
+
+        <div v-show="!isMobile">
+          <v-btn
+            v-for="(link, index) in mainLinks"
+            :key="index"
+            :to="link.to"
+            text
+            rounded
+            :class="link.display ? '' : 'd-none'"
+          >
+            <span>{{ link.text }}</span>
+          </v-btn>
+        </div>
+      </v-app-bar>
+
+      <v-content>
         <nuxt />
-      </v-container>
-    </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
-  </v-app>
+
+        <v-footer class="d-flex flex-column">
+          <div class="d-flex justify-space-around">
+            <v-card
+              v-for="(link, index) in footerLinks"
+              :key="index"
+              :to="link.to"
+              color="transparent"
+              flat
+              class="mx-2 px-2 text--secondary"
+            >
+              {{ link.text }}
+            </v-card>
+          </div>
+
+          <div class="text--secondary">
+            <small>&copy; 2020 Morico</small>
+          </div>
+        </v-footer>
+      </v-content>
+
+      <v-bottom-navigation v-show="isMobile" grow :app="isMobile">
+        <v-btn
+          v-for="(link, index) in mainLinks"
+          :key="index"
+          :to="link.to"
+          :class="link.display ? '' : 'd-none'"
+        >
+          <span>{{ link.text }}</span>
+          <v-icon>{{ link.icon }}</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
+    </v-app>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
+      loading: true,
+      isMobile: false,
+      mainLinks: [
+        { text: 'HOME', to: '/', icon: 'mdi-home', display: true },
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
+          text: 'クラン',
+          to: '/teams',
+          icon: 'mdi-account-group',
+          display: true,
+        },
+        { text: '戦績', to: '/stats', icon: 'mdi-trophy', display: true },
+        { text: 'お知らせ', to: '/news', icon: 'mdi-newspaper', display: true },
+        {
+          text: 'MLJP SCRIM とは',
+          to: '/about',
+          icon: 'mdi-information',
+          display: false,
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          text: 'お問い合わせ',
+          to: '/contactus',
+          icon: 'mdi-email',
+          display: false,
         },
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      footerLinks: [
+        {
+          text: 'MLJP SCRIM とは',
+          to: '/about',
+        },
+        {
+          text: 'お問い合わせ',
+          to: '/contactus',
+        },
+      ],
+    }
+  },
+
+  mounted() {
+    this.loading = false
+    if (window.innerWidth < 768) {
+      this.isMobile = true
     }
   },
 }
 </script>
+
+<style scoped>
+/*
+ ** Workaround for the bug
+ ** See https://github.com/vuetifyjs/vuetify/issues/8067
+ */
+.v-item-group.v-bottom-navigation .v-btn.v-size--default {
+  height: inherit;
+}
+</style>
