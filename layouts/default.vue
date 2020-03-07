@@ -121,4 +121,10 @@ export default {
 .v-item-group.v-bottom-navigation .v-btn.v-size--default {
   height: inherit;
 }
+
+.v-toolbar >>> .v-toolbar__content,
+.v-content >>> .v-content__wrap > div {
+  max-width: 780px;
+  margin: 0 auto;
+}
 </style>
