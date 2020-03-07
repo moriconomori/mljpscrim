@@ -25,7 +25,9 @@
       </v-app-bar>
 
       <v-content>
-        <nuxt />
+        <div class="main-content__wrap">
+          <nuxt />
+        </div>
 
         <v-footer class="d-flex flex-column">
           <div class="d-flex justify-space-around">
@@ -123,7 +125,7 @@ export default {
 }
 
 .v-toolbar >>> .v-toolbar__content,
-.v-content >>> .v-content__wrap > div {
+.main-content__wrap {
   max-width: 780px;
   margin: 0 auto;
 }
