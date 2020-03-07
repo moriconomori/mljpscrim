@@ -3,7 +3,7 @@
     <div v-show="loading" class="loading"></div>
 
     <v-app v-show="!loading">
-      <v-app-bar :app="!isMobile">
+      <v-app-bar app :hide-on-scroll="isMobile">
         <v-toolbar-title>
           MLJP SCRIM
         </v-toolbar-title>
