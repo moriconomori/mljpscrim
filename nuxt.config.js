@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import axios from 'axios'
+import fs from 'fs-extra'
 
 export default {
   mode: 'universal',
@@ -88,5 +90,53 @@ export default {
 
   generate: {
     subFolders: false,
+  },
+
+  hooks: {
+    build: {
+      async before(builder) {
+        const dest = './assets/data/'
+        const data = [
+          {
+            fileName: 'teams.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec',
+          },
+          {
+            fileName: 'team.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbxlbEeWkJtQJaEIbKuuudYHcSXv_MmKSDK1zewcmNU_gwKyg5Y/exec',
+          },
+          {
+            fileName: 'next_scrim.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbwOkwCt2nIyKLpJnR68Unl6UuovCEFevEZQ-ZPIjpdMhbCA9dnd/exec',
+          },
+          {
+            fileName: 'stats.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbzHGIXhIr70kYpljKadfT_XMxBWo9wGSW73n9XbuhZi8uPFlyw/exec',
+          },
+          {
+            fileName: 'news.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbzdg3_jf8jj5mwNYRmz8rVJ7JuVjCwhCmY7MTH0LBrmRD-4tKM/exec',
+          },
+          {
+            fileName: 'news_latest.json',
+            url:
+              'https://script.google.com/macros/s/AKfycbwmFnoU79NeiTjFWjrB_myQvTEZUohJrlD9S6TTSAGROq0qLqM/exec',
+          },
+        ]
+
+        for (let i = 0; i < data.length; i++) {
+          const filePath = dest + data[i].fileName
+          const json = (await axios.get(data[i].url)).data
+          fs.outputFile(filePath, JSON.stringify(json))
+          // eslint-disable-next-line no-console
+          console.log('[HOOK][before build] Generated ' + filePath)
+        }
+      },
+    },
   },
 }
