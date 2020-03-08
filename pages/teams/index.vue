@@ -15,10 +15,10 @@
             class="teams__team__logo"
           />
         </v-sheet>
-        <v-card-subtitle class="accent--text pb-0">
+        <v-card-subtitle class="accent--text pa-2 pa-sm-4 pb-sm-2">
           [{{ team.tag }}]
         </v-card-subtitle>
-        <v-card-title class="teams__team__name pt-1">
+        <v-card-title class="teams__team__name pa-2 pa-sm-4 pt-0 pt-sm-0">
           {{ team.name }}
         </v-card-title>
       </v-card>
