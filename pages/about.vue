@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="accent--text">MLJP SCRIM とは</h1>
+    <section-header>MLJP SCRIM とは</section-header>
+    <v-container class="pt-0">
       <p>
         スクリムは scrimmage
         (スクリメージ)の略で、"前哨戦(ぜんしょうせん)"という意味です。大会を本番とした時の模擬戦、練習試合になります。
@@ -12,8 +12,8 @@
     </v-container>
 
     <v-container>
-      <h2 class="accent--text">MLJP ルール 2020.01.25 改定</h2>
-      <h3 class="accent--text">
+      <h2 class="accent--text title">MLJP ルール 2020.01.25 改定</h2>
+      <h3 class="accent--text subtitle-1">
         1. 参加規則
       </h3>
       <v-divider class="my-1" />
@@ -27,7 +27,7 @@
     </v-container>
 
     <v-container>
-      <h3 class="accent--text">
+      <h3 class="accent--text subtitle-1">
         2. 運用規則
       </h3>
       <v-divider class="my-1" />
@@ -65,7 +65,7 @@
     </v-container>
 
     <v-container>
-      <h3 class="accent--text">3. 当スクリム内での煽り暴言晒し</h3>
+      <h3 class="accent--text subtitle-1">3. 当スクリム内での煽り暴言晒し</h3>
       <v-divider class="my-1" />
       <ul>
         <li>
@@ -105,7 +105,13 @@
 </template>
 
 <script>
+import SectionHeader from '~/components/SectionHeader'
+
 export default {
+  components: {
+    SectionHeader,
+  },
+
   head() {
     return {
       title: 'About',

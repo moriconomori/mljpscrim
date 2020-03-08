@@ -23,7 +23,7 @@
       参加日 {{ team.teamInfo.joinedAt }}
     </div>
 
-    <h2 class="accent--text mb-2 ml-2">メンバー</h2>
+    <section-header>メンバー</section-header>
     <v-card
       v-for="(member, memberIndex) in team.member"
       :key="memberIndex"
@@ -79,9 +79,14 @@
 </template>
 
 <script>
+import SectionHeader from '~/components/SectionHeader'
 import team from '~/assets/data/team.json'
 
 export default {
+  components: {
+    SectionHeader,
+  },
+
   data() {
     return {
       team: [],
