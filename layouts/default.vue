@@ -30,23 +30,22 @@
           <nuxt />
         </div>
 
-        <v-footer class="d-flex flex-column">
-          <div class="d-flex justify-space-around">
-            <v-card
+        <v-footer>
+          <v-row justify="center">
+            <nuxt-link
               v-for="(link, index) in footerLinks"
               :key="index"
               :to="link.to"
               color="transparent"
               flat
-              class="mx-2 px-2 text--secondary"
+              class="text--secondary py-2 px-4 footer__link"
             >
               {{ link.text }}
-            </v-card>
-          </div>
-
-          <div class="text--secondary">
-            <small>&copy; 2020 Morico</small>
-          </div>
+            </nuxt-link>
+            <v-col class="text-center text--secondary pt-0" cols="12">
+              <small>&copy; 2020 Morico</small>
+            </v-col>
+          </v-row>
         </v-footer>
       </v-content>
 
@@ -134,5 +133,9 @@ export default {
 .main-content__wrap {
   max-width: 780px;
   margin: 0 auto;
+}
+
+.footer__link {
+  text-decoration-line: none;
 }
 </style>
