@@ -139,6 +139,7 @@ export default {
   text-decoration-line: none;
 }
 
+.v-tab::before,
 .v-btn::before {
   background-color: inherit !important;
 }
