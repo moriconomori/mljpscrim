@@ -40,7 +40,12 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/gtm',
   ],
+  gtm: {
+    id: 'GTM-T9V6SZV',
+    pageTracking: true,
+  },
   /*
    ** Nuxt.js modules
    */
