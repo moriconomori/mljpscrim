@@ -33,47 +33,41 @@
     >
       <v-card-title
         >{{ member.name }}
-        <client-only>
-          <v-chip
-            v-if="member.isLeader"
-            x-small
-            label
-            color="accent"
-            class="ml-4"
-          >
-            LEADER
-          </v-chip>
-        </client-only>
+        <v-chip
+          v-if="member.isLeader"
+          x-small
+          label
+          color="accent"
+          class="ml-4"
+        >
+          LEADER
+        </v-chip>
       </v-card-title>
-      <client-only>
-        <v-card-subtitle v-if="member.role" class="d-flex flex-wrap pb-0">
-          Role
-          <v-chip
-            v-for="role in member.role.split(',')"
-            :key="role"
-            small
-            class="ml-2 mb-2"
-          >
-            {{ role }}
-          </v-chip>
-        </v-card-subtitle>
-      </client-only>
-      <client-only>
-        <v-card-actions v-if="member.links" class="pa-0">
-          <a
-            v-for="(link, linkIndex) in member.links.split('\n')"
-            :key="linkIndex"
-            :href="link.split(' ')[1]"
-            class="ml-4"
-          >
-            <img
-              :src="'/img/icon/' + link.split(' ')[0] + '.png'"
-              :alt="link.split(' ')[1]"
-              class="member__link"
-            />
-          </a>
-        </v-card-actions>
-      </client-only>
+      <v-card-subtitle v-if="member.role" class="d-flex flex-wrap pb-0">
+        Role
+        <v-chip
+          v-for="role in member.role.split(',')"
+          :key="role"
+          small
+          class="ml-2 mb-2"
+        >
+          {{ role }}
+        </v-chip>
+      </v-card-subtitle>
+      <v-card-actions v-if="member.links" class="pa-0">
+        <a
+          v-for="(link, linkIndex) in member.links.split('\n')"
+          :key="linkIndex"
+          :href="link.split(' ')[1]"
+          class="ml-4"
+        >
+          <img
+            :src="'/img/icon/' + link.split(' ')[0] + '.png'"
+            :alt="link.split(' ')[1]"
+            class="member__link"
+          />
+        </a>
+      </v-card-actions>
     </v-card>
   </div>
 </template>
