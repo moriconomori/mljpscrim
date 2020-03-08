@@ -11,16 +11,17 @@
         <v-spacer />
 
         <div v-show="!isMobile">
-          <v-btn
-            v-for="(link, index) in mainLinks"
-            :key="index"
-            :to="link.to"
-            text
-            rounded
-            :class="link.display ? '' : 'd-none'"
-          >
-            <span>{{ link.text }}</span>
-          </v-btn>
+          <v-tabs color="accent" background-color="transparent">
+            <v-tab
+              v-for="(link, index) in mainLinks"
+              :key="index"
+              :to="link.to"
+              :class="{ 'd-none': link.display === false }"
+            >
+              <v-icon left>{{ link.icon }}</v-icon>
+              {{ link.text }}
+            </v-tab>
+          </v-tabs>
         </div>
       </v-app-bar>
 
