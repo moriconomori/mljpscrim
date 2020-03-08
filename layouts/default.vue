@@ -4,7 +4,7 @@
 
     <v-app v-show="!loading">
       <v-app-bar app :hide-on-scroll="isMobile">
-        <v-toolbar-title>
+        <v-toolbar-title class="accent--text">
           MLJP SCRIM
         </v-toolbar-title>
 
@@ -50,7 +50,12 @@
         </v-footer>
       </v-content>
 
-      <v-bottom-navigation v-show="isMobile" grow :app="isMobile">
+      <v-bottom-navigation
+        v-show="isMobile"
+        grow
+        :app="isMobile"
+        color="accent"
+      >
         <v-btn
           v-for="(link, index) in mainLinks"
           :key="index"
