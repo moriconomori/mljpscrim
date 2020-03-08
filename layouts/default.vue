@@ -138,4 +138,8 @@ export default {
 .footer__link {
   text-decoration-line: none;
 }
+
+.v-btn::before {
+  background-color: inherit !important;
+}
 </style>
