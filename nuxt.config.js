@@ -90,6 +90,12 @@ export default {
 
   generate: {
     subFolders: false,
+    routes() {
+      const teams = fs.readJSONSync('./assets/data/teams.json')
+      return teams.map((team) => {
+        return '/teams/' + team.uid
+      })
+    },
   },
 
   hooks: {
