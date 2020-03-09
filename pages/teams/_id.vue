@@ -59,13 +59,15 @@
           v-for="(link, linkIndex) in member.links.split('\n')"
           :key="linkIndex"
           :href="link.split(' ')[1]"
-          class="ml-4"
+          class="ml-4 gtag-event__external_link"
         >
           <img
             :src="'/img/icon/' + link.split(' ')[0] + '.png'"
             :alt="link.split(' ')[1]"
-            class="member__link"
+            class="member__link__icon"
           />
+          <!-- gtag のクリックイベント用テキスト -->
+          <span class="d-none">{{ link.split(' ')[0] }}</span>
         </a>
       </v-card-actions>
     </v-card>
@@ -124,7 +126,7 @@ export default {
   word-break: break-all;
 }
 
-.member__link {
+.member__link__icon {
   width: 40px;
 }
 </style>
