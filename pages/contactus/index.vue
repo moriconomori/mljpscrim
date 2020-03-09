@@ -44,8 +44,8 @@
         required
       />
 
-      <v-btn :disabled="!valid" color="info" @click="validate">
-        送信する
+      <v-btn :disabled="!valid" large color="info" @click="click('confirm')">
+        送信
       </v-btn>
       <button ref="submit" class="d-none" />
 
@@ -55,11 +55,11 @@
           <v-card-text>お問い合わせを送信します。よろしいですか？</v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text @click="dialog = false">
+            <v-btn large text @click="click('cancel')">
               キャンセル
             </v-btn>
-            <v-btn color="info" @click="submit">
-              送信する
+            <v-btn large color="info" @click="click('submit')">
+              送信
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -91,10 +91,35 @@ export default {
   }),
 
   methods: {
+    click(type) {
+      this.sendEventMeasurement(type)
+
+      switch (type) {
+        case 'confirm':
+          this.validate()
+          break
+        case 'cancel':
+          this.dialog = false
+          break
+        case 'submit':
+          this.submit()
+          break
+        default:
+          break
+      }
+    },
+
+    sendEventMeasurement(eventAction) {
+      this.$gtm.push({
+        event: 'contactForm',
+        eventAction,
+      })
+    },
+
     submit() {
       const form = this.$refs.submit.parentNode
-      this.$ga.event('contactus', 'submit')
       form.submit()
+      this.dialog = false
     },
 
     validate() {
