@@ -10,7 +10,7 @@
 
         <v-spacer />
 
-        <div v-show="!isMobile">
+        <div class="app-bar__menu">
           <v-tabs color="accent" background-color="transparent">
             <v-tab
               v-for="(link, index) in mainLinks"
@@ -49,12 +49,7 @@
         </v-footer>
       </v-content>
 
-      <v-bottom-navigation
-        v-show="isMobile"
-        grow
-        :app="isMobile"
-        color="accent"
-      >
+      <v-bottom-navigation app grow color="accent" class="bottom-navigation">
         <v-btn
           v-for="(link, index) in mainLinks"
           :key="index"
@@ -111,9 +106,9 @@ export default {
     }
   },
 
-  mounted() {
+  beforeMount() {
     this.loading = false
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 760) {
       this.isMobile = true
     }
   },
@@ -142,5 +137,17 @@ export default {
 .v-tab::before,
 .v-btn::before {
   background-color: inherit !important;
+}
+
+@media screen and (max-width: 759px) {
+  .app-bar__menu {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .bottom-navigation {
+    display: none;
+  }
 }
 </style>
