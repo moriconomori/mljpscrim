@@ -18,6 +18,28 @@ export default {
         name: 'description',
         content: 'MLJP スクリムの情報サイトです。',
       },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'MLJP SCRIM',
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://scrim.mljp.ml',
+      },
+      { hid: 'og:title', property: 'og:title', content: 'MLJP SCRIM' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'MLJP スクリムの情報サイトです。',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://scrim.mljp.ml/img/icon/mljpscrim-512x512.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
