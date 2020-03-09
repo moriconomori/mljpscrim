@@ -1,9 +1,13 @@
 <template>
   <v-card outlined class="result py-1">
-    <div class="text-center text--secondary">
-      <v-icon size="14" class="text--secondary">mdi-clock-outline</v-icon>
+    <div class="d-flex justify-center align-center text--secondary ">
+      <v-icon size="16" class="text--secondary mr-1">
+        {{ mdiClockOutline }}
+      </v-icon>
       {{ result.date }}
-      <v-icon size="14" class="text--secondary ml-4">mdi-sword-cross</v-icon>
+      <v-icon size="16" class="text--secondary ml-4 mr-1">
+        {{ mdiSwordCross }}
+      </v-icon>
       BO{{ result.bo }}
     </div>
 
@@ -93,6 +97,8 @@
 </template>
 
 <script>
+import { mdiSwordCross, mdiClockOutline } from '@mdi/js'
+
 export default {
   props: {
     result: {
@@ -100,6 +106,11 @@ export default {
       default: null,
     },
   },
+
+  data: () => ({
+    mdiSwordCross,
+    mdiClockOutline,
+  }),
 
   methods: {
     getResultText(isVictory) {

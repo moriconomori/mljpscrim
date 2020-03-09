@@ -88,6 +88,7 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       font: false,
+      icons: false,
     },
     theme: {
       dark: true,

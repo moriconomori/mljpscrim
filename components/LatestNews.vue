@@ -8,9 +8,7 @@
         to="/news"
         class="accent--text text--darken-1"
       >
-        <v-icon>
-          mdi-menu-right
-        </v-icon>
+        <v-icon>{{ mdiMenuRight }}</v-icon>
         もっと見る
       </v-btn>
     </div>
@@ -32,9 +30,11 @@
           </v-card-title>
         </v-col>
         <v-col cols="4">
-          <v-card-subtitle class="pl-0 text-right">
-            <v-icon size="14" class="text--secondary">
-              mdi-clock-outline
+          <v-card-subtitle
+            class="pl-0 text-right d-flex justify-end align-center"
+          >
+            <v-icon size="16" class="text--secondary mr-1">
+              {{ mdiClockOutline }}
             </v-icon>
             {{ article.publishedAt }}
           </v-card-subtitle>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { mdiClockOutline, mdiMenuRight } from '@mdi/js'
 import SectionHeader from '~/components/SectionHeader'
 import news from '~/assets/data/news_latest.json'
 
@@ -56,6 +57,8 @@ export default {
 
   data: () => ({
     news,
+    mdiClockOutline,
+    mdiMenuRight,
   }),
 }
 </script>

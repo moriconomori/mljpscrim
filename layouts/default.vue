@@ -65,31 +65,37 @@
 </template>
 
 <script>
+import { mdiHome, mdiAccountGroup, mdiTrophy, mdiNewspaper } from '@mdi/js'
+
 export default {
   data() {
     return {
+      mdiHome,
+      mdiAccountGroup,
+      mdiTrophy,
+      mdiNewspaper,
       loading: true,
       isMobile: false,
       mainLinks: [
-        { text: 'HOME', to: '/', icon: 'mdi-home', display: true },
+        { text: 'HOME', to: '/', icon: mdiHome, display: true },
         {
           text: 'クラン',
           to: '/teams',
-          icon: 'mdi-account-group',
+          icon: mdiAccountGroup,
           display: true,
         },
-        { text: '戦績', to: '/stats', icon: 'mdi-trophy', display: true },
-        { text: 'お知らせ', to: '/news', icon: 'mdi-newspaper', display: true },
+        { text: '戦績', to: '/stats', icon: mdiTrophy, display: true },
+        { text: 'お知らせ', to: '/news', icon: mdiNewspaper, display: true },
         {
           text: 'MLJP SCRIM とは',
           to: '/about',
-          icon: 'mdi-information',
+          icon: '',
           display: false,
         },
         {
           text: 'お問い合わせ',
           to: '/contactus',
-          icon: 'mdi-email',
+          icon: '',
           display: false,
         },
       ],

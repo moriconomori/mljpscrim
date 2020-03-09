@@ -12,10 +12,14 @@
       outlined
       class="scrim ma-2 py-1"
     >
-      <div class="text-center text--secondary">
-        <v-icon size="14" class="text--secondary">mdi-clock-outline</v-icon>
+      <div class="d-flex justify-center align-center text--secondary ">
+        <v-icon size="16" class="text--secondary mr-1">
+          {{ mdiClockOutline }}
+        </v-icon>
         {{ scrim.date }}
-        <v-icon size="14" class="text--secondary ml-4">mdi-sword-cross</v-icon>
+        <v-icon size="16" class="text--secondary ml-4 mr-1">
+          {{ mdiSwordCross }}
+        </v-icon>
         BO{{ scrim.bo }}
       </div>
 
@@ -77,6 +81,7 @@
 </template>
 
 <script>
+import { mdiSwordCross, mdiClockOutline } from '@mdi/js'
 import SectionHeader from '~/components/SectionHeader'
 import nextScrim from '~/assets/data/next_scrim.json'
 
@@ -87,6 +92,8 @@ export default {
 
   data: () => ({
     nextScrim,
+    mdiSwordCross,
+    mdiClockOutline,
   }),
 
   methods: {
@@ -102,10 +109,6 @@ export default {
 </script>
 
 <style scoped>
-.next-scrim .v-icon {
-  vertical-align: initial;
-}
-
 .next-scrim .team__name {
   word-break: break-all;
 }

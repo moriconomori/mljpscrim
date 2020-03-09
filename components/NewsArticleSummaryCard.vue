@@ -3,15 +3,19 @@
     <v-card-title class="d-block text-truncate">{{
       article.title
     }}</v-card-title>
-    <v-card-subtitle>
-      <v-icon size="14" class="text--secondary">mdi-clock-outline</v-icon>
-      {{ article.publishedAt }}</v-card-subtitle
-    >
+    <v-card-subtitle class="d-flex align-center">
+      <v-icon size="16" class="text--secondary mr-1">
+        {{ mdiClockOutline }}
+      </v-icon>
+      {{ article.publishedAt }}
+    </v-card-subtitle>
     <v-card-text class="pb-0">{{ article.body }}</v-card-text>
   </v-card>
 </template>
 
 <script>
+import { mdiClockOutline } from '@mdi/js'
+
 export default {
   props: {
     article: {
@@ -19,6 +23,10 @@ export default {
       default: null,
     },
   },
+
+  data: () => ({
+    mdiClockOutline,
+  }),
 }
 </script>
 
@@ -29,9 +37,5 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-}
-
-.article .v-icon {
-  vertical-align: initial;
 }
 </style>
