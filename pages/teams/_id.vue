@@ -8,7 +8,6 @@
               :src="getLogoImage(team.teamInfo.logoUrl)"
               :alt="team.teamInfo.name"
               aspect-ratio="1"
-              class="team__logo"
             />
           </v-sheet>
         </v-col>
@@ -34,19 +33,13 @@
     >
       <v-card-title
         >{{ member.name }}
-        <v-chip
-          v-if="member.isLeader"
-          x-small
-          label
-          color="accent"
-          class="ml-4"
-        >
+        <v-chip v-if="member.isLeader" small label color="accent" class="ml-4">
           LEADER
         </v-chip>
       </v-card-title>
       <v-card-subtitle
         v-if="member.role"
-        class="d-flex align-center flex-wrap pb-2"
+        class="d-flex align-center flex-wrap py-2"
       >
         <span class="mb-2">
           Role
@@ -72,12 +65,13 @@
           rel="noopener"
           class="ml-4 gtag-event__external_link"
         >
-          <v-img
-            :src="'/img/icon/' + link.split(' ')[0] + '.png'"
-            :alt="link.split(' ')[1]"
-            aspect-ratio="1"
-            class="member__link__icon"
-          />
+          <v-avatar size="40">
+            <v-img
+              :src="'/img/icon/' + link.split(' ')[0] + '.png'"
+              :alt="link.split(' ')[1]"
+              aspect-ratio="1"
+            />
+          </v-avatar>
           <!-- gtag のクリックイベント用テキスト -->
           <span class="d-none">{{ link.split(' ')[0] }}</span>
         </a>
@@ -127,20 +121,11 @@ export default {
 </script>
 
 <style scoped>
-.team__logo {
-  display: block;
-  width: 100%;
-}
-
 .team__member:not(:last-child) {
   border-bottom-style: none;
 }
 
 .team__name {
   word-break: break-all;
-}
-
-.member__link__icon {
-  width: 40px;
 }
 </style>
