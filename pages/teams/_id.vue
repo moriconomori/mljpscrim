@@ -4,9 +4,10 @@
       <v-row no-gutters>
         <v-col cols="5">
           <v-sheet color="indigo" tile>
-            <img
+            <v-img
               :src="getLogoImage(team.teamInfo.logoUrl)"
               :alt="team.teamInfo.name"
+              aspect-ratio="1"
               class="team__logo"
             />
           </v-sheet>
@@ -61,9 +62,10 @@
           :href="link.split(' ')[1]"
           class="ml-4 gtag-event__external_link"
         >
-          <img
+          <v-img
             :src="'/img/icon/' + link.split(' ')[0] + '.png'"
             :alt="link.split(' ')[1]"
+            aspect-ratio="1"
             class="member__link__icon"
           />
           <!-- gtag のクリックイベント用テキスト -->
