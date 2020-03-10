@@ -8,6 +8,9 @@ export default {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#',
+    },
     titleTemplate: '%s | MLJP SCRIM',
     title: 'MLJP SCRIM',
     meta: [
@@ -16,12 +19,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'MLJP スクリムの情報サイトです。',
-      },
-      {
-        hid: 'og:site_name',
-        property: 'og:site_name',
-        content: 'MLJP SCRIM',
+        content:
+          'モバイル·レジェンド: Bang Bang (MLBB) の、日本で行われているスクリムの情報をまとめています。',
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -33,7 +32,8 @@ export default {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'MLJP スクリムの情報サイトです。',
+        content:
+          'モバイル·レジェンド: Bang Bang (MLBB) の、日本で行われているスクリムの情報をまとめています。',
       },
       {
         hid: 'og:image',
