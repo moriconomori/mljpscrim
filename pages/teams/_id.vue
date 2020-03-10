@@ -20,7 +20,7 @@
         </v-col>
       </v-row>
     </v-card>
-    <div class="text-right caption text--secondary mr-1">
+    <div class="text-right body-2 text--secondary ma-2">
       参加日 {{ team.teamInfo.joinedAt }}
     </div>
 
@@ -30,7 +30,7 @@
       :key="memberIndex"
       outlined
       tile
-      class="team__member pb-4"
+      class="team__member"
     >
       <v-card-title
         >{{ member.name }}
@@ -44,8 +44,13 @@
           LEADER
         </v-chip>
       </v-card-title>
-      <v-card-subtitle v-if="member.role" class="d-flex flex-wrap pb-0">
-        Role
+      <v-card-subtitle
+        v-if="member.role"
+        class="d-flex align-center flex-wrap pb-2"
+      >
+        <span class="mb-2">
+          Role
+        </span>
         <v-chip
           v-for="role in member.role.split(',')"
           :key="role"
@@ -55,11 +60,16 @@
           {{ role }}
         </v-chip>
       </v-card-subtitle>
-      <v-card-actions v-if="member.links" class="pa-0">
+      <v-card-actions v-if="member.links" class="pa-0 pb-4">
+        <v-icon size="24" class="text--secondary ml-4">
+          {{ mdiLinkVariant }}
+        </v-icon>
         <a
           v-for="(link, linkIndex) in member.links.split('\n')"
           :key="linkIndex"
           :href="link.split(' ')[1]"
+          target="_blank"
+          rel="noopener"
           class="ml-4 gtag-event__external_link"
         >
           <v-img
@@ -77,6 +87,7 @@
 </template>
 
 <script>
+import { mdiLinkVariant } from '@mdi/js'
 import SectionHeader from '~/components/SectionHeader'
 import team from '~/assets/data/team.json'
 
@@ -87,6 +98,7 @@ export default {
 
   data() {
     return {
+      mdiLinkVariant,
       team: [],
     }
   },
