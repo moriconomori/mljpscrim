@@ -42,7 +42,7 @@
             >
               {{ link.text }}
             </v-btn>
-            <v-col class="text-center text--secondary pt-0" cols="12">
+            <v-col class="text-center text--secondary py-0 mb-2" cols="12">
               <small>&copy; 2020 Morico</small>
             </v-col>
           </v-row>
