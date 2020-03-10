@@ -1,5 +1,5 @@
 <template>
-  <div class="contactus">
+  <div class="contact">
     <section-header>お問い合わせ</section-header>
 
     <v-form
@@ -35,30 +35,39 @@
       <v-textarea
         v-model="message"
         outlined
+        :auto-grow="isMobile"
         :rules="messageRules"
-        auto-grow
         label="お問い合わせ内容"
         name="お問い合わせ内容"
         color="white"
         rows="5"
         required
+        class="contact-form__message"
       />
 
-      <v-btn :disabled="!valid" large color="info" @click="click('confirm')">
+      <v-btn
+        :disabled="!valid || dialog"
+        large
+        color="primary"
+        @click="click('confirm')"
+      >
         送信
       </v-btn>
       <button ref="submit" class="d-none" />
 
       <v-dialog v-model="dialog" persistent max-width="290">
-        <v-card>
-          <v-card-title class="headline">送信確認</v-card-title>
-          <v-card-text>お問い合わせを送信します。よろしいですか？</v-card-text>
+        <v-card color="">
+          <v-card-title class="headline justify-center">送信確認</v-card-title>
+          <v-card-text>
+            お問い合わせを送信します。<br />
+            よろしいですか？
+          </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn large text @click="click('cancel')">
               キャンセル
             </v-btn>
-            <v-btn large color="info" @click="click('submit')">
+            <v-btn large color="primary" @click="click('submit')">
               送信
             </v-btn>
           </v-card-actions>
@@ -88,7 +97,14 @@ export default {
     message: '',
     messageRules: [(v) => !!v || 'お問い合わせ内容を入力して下さい'],
     dialog: false,
+    isMobile: false,
   }),
+
+  beforeMount() {
+    if (window.innerWidth < 760) {
+      this.isMobile = true
+    }
+  },
 
   methods: {
     click(type) {
@@ -136,3 +152,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.contact .contact-form__message >>> textarea {
+  padding-bottom: 4px;
+}
+</style>
