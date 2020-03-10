@@ -94,7 +94,7 @@ export default {
         },
         {
           text: 'お問い合わせ',
-          to: '/contactus',
+          to: '/contact',
           icon: '',
           display: false,
         },
@@ -106,7 +106,7 @@ export default {
         },
         {
           text: 'お問い合わせ',
-          to: '/contactus',
+          to: '/contact',
         },
       ],
     }
