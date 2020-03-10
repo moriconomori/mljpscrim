@@ -32,16 +32,16 @@
 
         <v-footer>
           <v-row justify="center">
-            <nuxt-link
+            <v-btn
               v-for="(link, index) in footerLinks"
               :key="index"
               :to="link.to"
-              color="transparent"
-              flat
-              class="text--secondary py-2 px-4 footer__link"
+              text
+              rounded
+              class="text--secondary footer__link"
             >
               {{ link.text }}
-            </nuxt-link>
+            </v-btn>
             <v-col class="text-center text--secondary pt-0" cols="12">
               <small>&copy; 2020 Morico</small>
             </v-col>
@@ -137,7 +137,7 @@ export default {
 }
 
 .footer__link {
-  text-decoration-line: none;
+  letter-spacing: normal;
 }
 
 .v-tab::before,
