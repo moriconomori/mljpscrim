@@ -9,10 +9,9 @@
     >
       <v-card tile :to="'/teams/' + team.uid" class="teams__team">
         <v-sheet color="indigo" tile>
-          <v-img
+          <img
             :src="getLogoImage(team.logoUrl)"
             :alt="team.name"
-            aspect-ratio="1"
             class="teams__team__logo"
           />
         </v-sheet>

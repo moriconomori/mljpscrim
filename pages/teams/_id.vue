@@ -4,10 +4,10 @@
       <v-row no-gutters>
         <v-col cols="5">
           <v-sheet color="indigo" tile>
-            <v-img
+            <img
               :src="getLogoImage(team.teamInfo.logoUrl)"
               :alt="team.teamInfo.name"
-              aspect-ratio="1"
+              class="team__logo"
             />
           </v-sheet>
         </v-col>
@@ -66,10 +66,11 @@
           class="ml-4 gtag-event__external_link"
         >
           <v-avatar size="40">
-            <v-img
+            <img
               :src="'/img/icon/' + link.split(' ')[0] + '.png'"
               :alt="link.split(' ')[1]"
-              aspect-ratio="1"
+              width="40"
+              height="40"
             />
           </v-avatar>
           <!-- gtag のクリックイベント用テキスト -->
@@ -127,5 +128,10 @@ export default {
 
 .team__name {
   word-break: break-all;
+}
+
+.team__logo {
+  width: 100%;
+  display: block;
 }
 </style>
