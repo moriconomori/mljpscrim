@@ -1,27 +1,21 @@
 <template>
   <div class="latest-news">
     <div class="d-flex justify-space-between align-center mb-n2">
-      <section-header>
-        お知らせ
-      </section-header>
+      <section-header>お知らせ</section-header>
       <v-btn
         text
         color="secondary"
         to="/news"
         class="accent--text text--darken-1"
       >
-        <v-icon>
-          mdi-menu-right
-        </v-icon>
+        <v-icon>{{ mdiMenuRight }}</v-icon>
         もっと見る
       </v-btn>
     </div>
 
-    <client-only>
-      <v-card v-if="!news.length" outlined class="text-center mx-2 mb-2 pa-8">
-        データがありません
-      </v-card>
-    </client-only>
+    <v-card v-if="!news.length" outlined class="text-center mx-2 my-2 pa-8">
+      データがありません
+    </v-card>
 
     <v-card
       v-for="(article, index) in news"
@@ -36,9 +30,11 @@
           </v-card-title>
         </v-col>
         <v-col cols="4">
-          <v-card-subtitle class="pl-0 text-right">
-            <v-icon size="14" class="text--secondary">
-              mdi-clock-outline
+          <v-card-subtitle
+            class="pl-0 text-right d-flex justify-end align-center"
+          >
+            <v-icon size="16" class="text--secondary mr-1">
+              {{ mdiClockOutline }}
             </v-icon>
             {{ article.publishedAt }}
           </v-card-subtitle>
@@ -50,25 +46,20 @@
 </template>
 
 <script>
-import latestNewsJson from '~/assets/json/news_latest.json'
+import { mdiClockOutline, mdiMenuRight } from '@mdi/js'
+import SectionHeader from '~/components/SectionHeader'
+import news from '~/assets/data/news_latest.json'
 
 export default {
-  data: () => ({
-    news: {
-      type: Array,
-    },
-  }),
-
-  async created() {
-    if (latestNewsJson) {
-      this.news = latestNewsJson
-    } else {
-      const news = await this.$axios.$get(
-        'https://script.google.com/macros/s/AKfycbwmFnoU79NeiTjFWjrB_myQvTEZUohJrlD9S6TTSAGROq0qLqM/exec'
-      )
-      this.news = news
-    }
+  components: {
+    SectionHeader,
   },
+
+  data: () => ({
+    news,
+    mdiClockOutline,
+    mdiMenuRight,
+  }),
 }
 </script>
 

@@ -1,8 +1,6 @@
 <template>
-  <div class="contactus">
-    <section-header>
-      お問い合わせ
-    </section-header>
+  <div class="contact">
+    <section-header>お問い合わせ</section-header>
 
     <v-form
       ref="form"
@@ -37,31 +35,40 @@
       <v-textarea
         v-model="message"
         outlined
+        :auto-grow="isMobile"
         :rules="messageRules"
-        auto-grow
         label="お問い合わせ内容"
         name="お問い合わせ内容"
         color="white"
         rows="5"
         required
+        class="contact-form__message"
       />
 
-      <v-btn :disabled="!valid" color="info" @click="validate">
-        送信する
+      <v-btn
+        :disabled="!valid || dialog"
+        large
+        color="primary"
+        @click="click('confirm')"
+      >
+        送信
       </v-btn>
       <button ref="submit" class="d-none" />
 
       <v-dialog v-model="dialog" persistent max-width="290">
-        <v-card>
-          <v-card-title class="headline">送信確認</v-card-title>
-          <v-card-text>お問い合わせを送信します。よろしいですか？</v-card-text>
+        <v-card color="">
+          <v-card-title class="headline justify-center">送信確認</v-card-title>
+          <v-card-text>
+            お問い合わせを送信します。<br />
+            よろしいですか？
+          </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text @click="dialog = false">
+            <v-btn large text @click="click('cancel')">
               キャンセル
             </v-btn>
-            <v-btn color="info" @click="submit">
-              送信する
+            <v-btn large color="primary" @click="click('submit')">
+              送信
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -71,7 +78,13 @@
 </template>
 
 <script>
+import SectionHeader from '~/components/SectionHeader'
+
 export default {
+  components: {
+    SectionHeader,
+  },
+
   data: () => ({
     valid: true,
     name: '',
@@ -84,13 +97,45 @@ export default {
     message: '',
     messageRules: [(v) => !!v || 'お問い合わせ内容を入力して下さい'],
     dialog: false,
+    isMobile: false,
   }),
 
+  beforeMount() {
+    if (window.innerWidth < 760) {
+      this.isMobile = true
+    }
+  },
+
   methods: {
+    click(type) {
+      this.sendEventMeasurement(type)
+
+      switch (type) {
+        case 'confirm':
+          this.validate()
+          break
+        case 'cancel':
+          this.dialog = false
+          break
+        case 'submit':
+          this.submit()
+          break
+        default:
+          break
+      }
+    },
+
+    sendEventMeasurement(eventAction) {
+      this.$gtm.push({
+        event: 'contactForm',
+        eventAction,
+      })
+    },
+
     submit() {
       const form = this.$refs.submit.parentNode
-      this.$ga.event('contactus', 'submit')
       form.submit()
+      this.dialog = false
     },
 
     validate() {
@@ -107,3 +152,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.contact .contact-form__message >>> textarea {
+  padding-bottom: 4px;
+}
+</style>

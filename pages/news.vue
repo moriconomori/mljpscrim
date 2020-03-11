@@ -1,10 +1,8 @@
 <template>
   <div class="news">
-    <client-only>
-      <v-card v-if="!news.length" outlined class="text-center ma-2 pa-8">
-        データがありません
-      </v-card>
-    </client-only>
+    <v-card v-if="!news.length" outlined class="text-center ma-2 pa-8">
+      データがありません
+    </v-card>
 
     <news-article-summary-card
       v-for="(article, index) in news"
@@ -17,7 +15,7 @@
 
 <script>
 import NewsArticleSummaryCard from '~/components/NewsArticleSummaryCard'
-import newsJson from '~/assets/json/news.json'
+import news from '~/assets/data/news.json'
 
 export default {
   components: {
@@ -25,21 +23,8 @@ export default {
   },
 
   data: () => ({
-    news: {
-      type: Array,
-    },
+    news,
   }),
-
-  async created() {
-    if (newsJson) {
-      this.news = newsJson
-    } else {
-      const news = await this.$axios.$get(
-        'https://script.google.com/macros/s/AKfycbzHGIXhIr70kYpljKadfT_XMxBWo9wGSW73n9XbuhZi8uPFlyw/exec'
-      )
-      this.news = news
-    }
-  },
 
   head() {
     return {

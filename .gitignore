@@ -89,5 +89,4 @@ sw.*
 # Vim swap files
 *.swp
 
-# ビルド時に生成するので
-/assets/json/*
+assets/data

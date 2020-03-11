@@ -1,30 +1,23 @@
 <template>
   <div>
-    <section-header>
-      MLJP SCRIM とは
-    </section-header>
-    <v-container pt-0>
+    <section-header>MLJP SCRIM とは</section-header>
+    <v-container class="pt-0">
       <p>
-        スクリムは scrimmage (スクリメージ)
-        の略で、"前哨戦(ぜんしょうせん)"という意味です。
-        大会を本番とした時の模擬戦、練習試合になります。
+        スクリムは scrimmage
+        (スクリメージ)の略で、"前哨戦(ぜんしょうせん)"という意味です。大会を本番とした時の模擬戦、練習試合になります。
       </p>
       <p>
-        大会に出る人って腕に自信がある人が多いですよね。更に予選を勝ち上がると強い人ばかりになってきます。
-        強い人ばかりのマッチだと通常のドラフトピックとは立ち回り方が変わってきます。
-        そういった大会ならではの動きを練習する為に開催されるのが”スクリム”になります。
+        大会に出る人って腕に自信がある人が多いですよね。更に予選を勝ち上がると強い人ばかりになってきます。強い人ばかりのマッチだと通常のドラフトピックとは立ち回り方が変わってきます。そういった大会ならではの動きを練習する為に開催されるのが"スクリム"になります。
       </p>
     </v-container>
 
-    <section-header>
-      MLJP ルール 2020.01.25 改定
-    </section-header>
-    <v-container pt-0>
-      <h3 class="subtitle-1 accent--text text--lighten-2">
+    <v-container>
+      <h2 class="accent--text title">MLJP ルール 2020.01.25 改定</h2>
+      <h3 class="accent--text subtitle-1">
         1. 参加規則
       </h3>
       <v-divider class="my-1" />
-      <ul class="body-2">
+      <ul>
         <li>当スクリムは 20 チームまでの参加枠とする</li>
         <li>
           参加チームは応募時に主要メンバーが 5 名以上現ミシックである事とする
@@ -34,11 +27,11 @@
     </v-container>
 
     <v-container>
-      <h3 class="subtitle-1 accent--text text--lighten-2">
+      <h3 class="accent--text subtitle-1">
         2. 運用規則
       </h3>
       <v-divider class="my-1" />
-      <ul class="body-2">
+      <ul>
         <li>参加チームは最低週 1 回以上のスクリム要請を出す事とする</li>
         <li>
           参加要請は毎日 18:00
@@ -72,11 +65,9 @@
     </v-container>
 
     <v-container>
-      <h3 class="subtitle-1 accent--text text--lighten-2">
-        3. 当スクリム内での煽り暴言晒し
-      </h3>
+      <h3 class="accent--text subtitle-1">3. 当スクリム内での煽り暴言晒し</h3>
       <v-divider class="my-1" />
-      <ul class="body-2">
+      <ul>
         <li>
           当スクリム内で発生した煽り暴言晒し行為については厳しく処罰するものとする
         </li>
@@ -106,6 +97,7 @@
         </li>
       </ul>
     </v-container>
+
     <v-container>
       <p>以上</p>
     </v-container>
@@ -113,7 +105,13 @@
 </template>
 
 <script>
+import SectionHeader from '~/components/SectionHeader'
+
 export default {
+  components: {
+    SectionHeader,
+  },
+
   head() {
     return {
       title: 'About',

@@ -1,10 +1,8 @@
 <template>
   <div class="stats">
-    <client-only>
-      <v-card v-if="!stats.length" outlined class="text-center ma-2 pa-8">
-        データがありません
-      </v-card>
-    </client-only>
+    <v-card v-if="!stats.length" outlined class="text-center ma-2 pa-8">
+      データがありません
+    </v-card>
 
     <scrim-result-summary-card
       v-for="(result, index) in stats"
@@ -17,7 +15,7 @@
 
 <script>
 import ScrimResultSummaryCard from '~/components/ScrimResultSummaryCard'
-import statsJson from '~/assets/json/stats.json'
+import stats from '~/assets/data/stats.json'
 
 export default {
   components: {
@@ -25,21 +23,8 @@ export default {
   },
 
   data: () => ({
-    stats: {
-      type: Array,
-    },
+    stats,
   }),
-
-  async created() {
-    if (statsJson) {
-      this.stats = statsJson
-    } else {
-      const stats = await this.$axios.$get(
-        'https://script.google.com/macros/s/AKfycbzHGIXhIr70kYpljKadfT_XMxBWo9wGSW73n9XbuhZi8uPFlyw/exec'
-      )
-      this.stats = stats
-    }
-  },
 
   head() {
     return {
