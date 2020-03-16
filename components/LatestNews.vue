@@ -1,6 +1,6 @@
 <template>
   <div class="latest-news">
-    <div class="d-flex justify-space-between align-center mb-n2">
+    <div class="d-flex justify-space-between align-center my-n2">
       <section-header>お知らせ</section-header>
       <v-btn
         text
