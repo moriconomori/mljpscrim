@@ -5,17 +5,18 @@
         <v-col cols="5">
           <v-sheet color="indigo" tile>
             <img
+              ref="teamLogo"
               :src="getLogoImage(team.teamInfo.logoUrl)"
               :alt="team.teamInfo.name"
+              :width="teamLogoWidth"
+              :height="teamLogoWidth"
               class="team__logo"
             />
           </v-sheet>
         </v-col>
         <v-col class="d-flex flex-column justify-center pl-4">
           <div class="accent--text">[{{ team.teamInfo.tag }}]</div>
-          <h1 class="headline team__name">
-            {{ team.teamInfo.name }}
-          </h1>
+          <h1 class="headline team__name">{{ team.teamInfo.name }}</h1>
         </v-col>
       </v-row>
     </v-card>
@@ -95,12 +96,23 @@ export default {
     return {
       mdiLinkVariant,
       team: [],
+      teamLogoWidth: {
+        type: Number,
+      },
     }
   },
 
   created() {
     const id = this.$route.params.id
     this.team = team[id]
+  },
+
+  mounted() {
+    window.onresize = () => {
+      this.teamLogoWidth = this.getRefTeamLogo().offsetWidth
+    }
+
+    this.teamLogoWidth = this.getRefTeamLogo().offsetWidth
   },
 
   methods: {
@@ -110,6 +122,16 @@ export default {
         return path + 'default.png'
       }
       return path + logoUrl + '.jpg'
+    },
+
+    getRefTeamLogo() {
+      const isArray = Array.isArray(this.$refs.teamLogo)
+
+      if (isArray) {
+        return this.$refs.teamLogo[0]
+      }
+
+      return this.$refs.teamLogo
     },
   },
 
