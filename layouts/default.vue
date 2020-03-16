@@ -3,34 +3,32 @@
     <div v-show="loading" class="loading"></div>
 
     <v-app v-show="!loading">
-      <v-app-bar app :hide-on-scroll="isMobile">
-        <v-toolbar-title class="accent--text">
-          MLJP SCRIM
-        </v-toolbar-title>
-
-        <v-spacer />
-
-        <div class="app-bar__menu">
-          <v-tabs color="accent" background-color="transparent">
-            <v-tab
-              v-for="(link, index) in mainLinks"
-              :key="index"
-              :to="link.to"
-              :class="{ 'd-none': link.display === false }"
-            >
-              <v-icon left>{{ link.icon }}</v-icon>
-              {{ link.text }}
-            </v-tab>
-          </v-tabs>
-        </div>
-      </v-app-bar>
-
       <v-content>
+        <v-toolbar>
+          <v-toolbar-title class="accent--text">
+            MLJP SCRIM
+          </v-toolbar-title>
+          <v-spacer />
+          <div class="app-bar__menu">
+            <v-tabs color="accent" background-color="transparent">
+              <v-tab
+                v-for="(link, index) in mainLinks"
+                :key="index"
+                :to="link.to"
+                :class="{ 'd-none': link.display === false }"
+              >
+                <v-icon left>{{ link.icon }}</v-icon>
+                {{ link.text }}
+              </v-tab>
+            </v-tabs>
+          </div>
+        </v-toolbar>
+
         <div class="main-content__wrap">
           <nuxt />
         </div>
 
-        <v-footer>
+        <v-footer class="pb-3">
           <v-row justify="center">
             <v-btn
               v-for="(link, index) in footerLinks"
@@ -42,7 +40,7 @@
             >
               {{ link.text }}
             </v-btn>
-            <v-col class="text-center text--secondary py-0 mb-2" cols="12">
+            <v-col class="text-center text--secondary pa-0" cols="12">
               <small>&copy; 2020 Morico</small>
             </v-col>
           </v-row>
@@ -75,7 +73,6 @@ export default {
       mdiTrophy,
       mdiNewspaper,
       loading: true,
-      isMobile: false,
       mainLinks: [
         { text: 'HOME', to: '/', icon: mdiHome, display: true },
         {
@@ -114,9 +111,6 @@ export default {
 
   beforeMount() {
     this.loading = false
-    if (window.innerWidth < 760) {
-      this.isMobile = true
-    }
   },
 }
 </script>
@@ -149,11 +143,19 @@ export default {
   .app-bar__menu {
     display: none;
   }
+
+  .v-content {
+    padding-bottom: 56px !important;
+  }
 }
 
 @media screen and (min-width: 760px) {
   .bottom-navigation {
     display: none;
+  }
+
+  .v-content {
+    padding-bottom: 0px !important;
   }
 }
 </style>
