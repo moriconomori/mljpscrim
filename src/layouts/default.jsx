@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Default = ({ children }) => {
   return (
@@ -8,6 +9,10 @@ const Default = ({ children }) => {
       <footer>footer</footer>
     </React.Fragment>
   );
+};
+
+Default.propTypes = {
+  children: PropTypes.element,
 };
 
 export default Default;
