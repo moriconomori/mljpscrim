@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles({
   footer: {
@@ -22,9 +23,11 @@ const useStyles = makeStyles({
 
 const FooterLink = ({ href, text }) => {
   const classes = useStyles();
+  const router = useRouter();
+  const scroll = router.pathname === href ? false : true;
 
   return (
-    <Link href={href}>
+    <Link href={href} scroll={scroll}>
       <Typography
         color="textSecondary"
         variant="body1"
