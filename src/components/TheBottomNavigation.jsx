@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { grey } from '@material-ui/core/colors';
 import Icon from '@mdi/react';
 import { mdiHome, mdiAccountGroup, mdiTrophy, mdiNewspaper } from '@mdi/js';
 import Router, { useRouter } from 'next/router';
@@ -11,41 +11,33 @@ const TheBottomNavigation = () => {
   const router = useRouter();
 
   const useStyles = makeStyles((theme) => ({
-    bottomNavi: {
+    root: {
       '@media (min-width: 600px)': {
         display: 'none',
       },
-      top: 'auto',
+
+      position: 'fixed',
       bottom: 0,
-      '& .MuiTab-root': {
-        minHeight: 56,
-        padding: 0,
-        lineHeight: '1em',
-      },
-      '& .MuiTab-labelIcon .MuiTab-wrapper > *:first-child': {
-        marginBottom: 0,
-      },
-      '& .MuiTabs-indicator': {
-        display: 'none',
-      },
-      '& .MuiTab-root svg path': {
+      left: 0,
+      width: '100%',
+      backgroundColor: grey[900],
+
+      '& svg path': {
         fill: theme.palette.text.secondary,
       },
-      '& .MuiTab-root.Mui-selected svg path': {
+
+      '& .Mui-selected svg path': {
         fill: theme.palette.primary.main,
       },
-    },
-    displayNone: {
-      display: 'none',
     },
   }));
 
   const classes = useStyles();
-  const [currentPathName, setCurrentPathName] = useState(router.pathname);
+  const [value, setValue] = useState(router.pathname);
 
   useEffect(() => {
     const handleRouteChange = (path) => {
-      setCurrentPathName(path);
+      setValue(path);
     };
 
     Router.events.on('routeChangeStart', handleRouteChange);
@@ -54,53 +46,47 @@ const TheBottomNavigation = () => {
     };
   }, []);
 
-  const handleChange = (event, newPath) => {
-    setCurrentPathName(newPath);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    if (router.pathname !== newValue) {
+      router.push(newValue).then(() => {
+        scrollToTop();
+      });
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
   };
 
   return (
-    <AppBar
-      position="fixed"
-      color="default"
-      className={classes.bottomNavi}
-      component="div"
+    <BottomNavigation
+      value={value}
+      onChange={handleChange}
+      showLabels
+      className={classes.root}
     >
-      <Tabs
-        value={currentPathName}
-        onChange={handleChange}
-        variant="fullWidth"
-        indicatorColor="primary"
-        textColor="primary"
-        aria-label="bottom navigation"
-      >
-        <Tab
-          icon={<Icon path={mdiHome} size={1} />}
-          label="HOME"
-          value="/"
-          onClick={() => Router.push('/')}
-        />
-        <Tab
-          icon={<Icon path={mdiAccountGroup} size={1} />}
-          label="クラン"
-          value="/teams"
-          onClick={() => Router.push('/teams')}
-        />
-        <Tab
-          icon={<Icon path={mdiTrophy} size={1} />}
-          label="戦績"
-          value="/stats"
-          onClick={() => Router.push('/stats')}
-        />
-        <Tab
-          icon={<Icon path={mdiNewspaper} size={1} />}
-          label="お知らせ"
-          value="/news"
-          onClick={() => Router.push('/news')}
-        />
-        <Tab value="/about" className={classes.displayNone} />
-        <Tab value="/contact" className={classes.displayNone} />
-      </Tabs>
-    </AppBar>
+      <BottomNavigationAction
+        value="/"
+        label="HOME"
+        icon={<Icon path={mdiHome} size={1} />}
+      />
+      <BottomNavigationAction
+        value="/teams"
+        label="クラン"
+        icon={<Icon path={mdiAccountGroup} size={1} />}
+      />
+      <BottomNavigationAction
+        value="/stats"
+        label="戦績"
+        icon={<Icon path={mdiTrophy} size={1} />}
+      />
+      <BottomNavigationAction
+        value="/news"
+        label="お知らせ"
+        icon={<Icon path={mdiNewspaper} size={1} />}
+      />
+    </BottomNavigation>
   );
 };
 
