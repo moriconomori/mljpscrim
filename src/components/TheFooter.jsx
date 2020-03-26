@@ -18,30 +18,43 @@ const useStyles = makeStyles({
   },
 });
 
+const FooterLink = ({ href, text }) => {
+  const classes = useStyles();
+
+  return (
+    <Link href={href}>
+      <Typography
+        color="textSecondary"
+        variant="body1"
+        component="span"
+        className={classes.link}
+      >
+        {text}
+      </Typography>
+    </Link>
+  );
+};
+
 const TheFooter = () => {
   const classes = useStyles();
 
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="sm">
-        <Typography color="textSecondary" variant="body1">
-          <Box
-            display="flex"
-            flexWrap="wrap"
-            justifyContent="space-around"
-            my={2}
-          >
-            <Link href="/about">
-              <span className={classes.link}>MPJP SCRIM とは</span>
-            </Link>
-            <Link href="/contact">
-              <span className={classes.link}>お問い合わせ</span>
-            </Link>
-          </Box>
-          <Box textAlign="center" my={1}>
-            <Typography variant="caption">&copy; 2020 Morico</Typography>
-          </Box>
-        </Typography>
+      <Container maxWidth="sm" disableGutters>
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="space-around"
+          my={2}
+        >
+          <FooterLink href="/about" text="MLJP SCRIM とは" />
+          <FooterLink href="/contact" text="お問い合わせ" />
+        </Box>
+        <Box textAlign="center" my={2}>
+          <Typography color="textSecondary" variant="body2">
+            &copy; 2020 Morico
+          </Typography>
+        </Box>
       </Container>
     </footer>
   );
