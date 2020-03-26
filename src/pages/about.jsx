@@ -118,7 +118,9 @@ const About = () => {
         }
       `}</style>
 
-      <Typography variant="body1">以上</Typography>
+      <Box mb={2}>
+        <Typography variant="body1">以上</Typography>
+      </Box>
     </Container>
   );
 };
