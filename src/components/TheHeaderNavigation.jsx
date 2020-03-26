@@ -44,6 +44,9 @@ const TheHeaderNavigation = () => {
         fill: theme.palette.primary.main,
       },
     },
+    displayNone: {
+      display: 'none',
+    },
   }));
 
   const classes = useStyles();
@@ -97,6 +100,8 @@ const TheHeaderNavigation = () => {
         value="/news"
         onClick={() => Router.push('/news')}
       />
+      <Tab value="/about" className={classes.displayNone} />
+      <Tab value="/contact" className={classes.displayNone} />
     </Tabs>
   );
 };
