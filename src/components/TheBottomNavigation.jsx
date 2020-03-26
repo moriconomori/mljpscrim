@@ -12,6 +12,9 @@ const TheBottomNavigation = () => {
 
   const useStyles = makeStyles((theme) => ({
     bottomNavi: {
+      '@media (min-width: 600px)': {
+        display: 'none',
+      },
       top: 'auto',
       bottom: 0,
       '& .MuiTab-root': {
