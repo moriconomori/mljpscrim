@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 
 const About = () => {
   return (
-    <Container maxWidth="md">
+    <Container>
       <Box mt={2}>
         <Typography variant="h5" component="h1" color="primary">
           MLJP SCRIM とは

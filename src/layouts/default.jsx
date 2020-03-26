@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import TheBottomNavigation from '../components/TheBottomNavigation';
@@ -42,12 +43,18 @@ const Default = ({ children }) => {
       <div className={classes.root}>
         <div>
           <AppBar position={width < 600 ? 'static' : 'sticky'} color="default">
-            <Toolbar className={classes.toolber}>
-              <span>MLJP SCRIM</span>
-              <TheHeaderNavigation />
-            </Toolbar>
+            <Container maxWidth="md" disableGutters>
+              <Toolbar className={classes.toolber}>
+                <span>MLJP SCRIM</span>
+                <TheHeaderNavigation />
+              </Toolbar>
+            </Container>
           </AppBar>
-          <main>{children}</main>
+          <main>
+            <Container maxWidth="md" disableGutters>
+              {children}
+            </Container>
+          </main>
         </div>
         <TheFooter />
       </div>
