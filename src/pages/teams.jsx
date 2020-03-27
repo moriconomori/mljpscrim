@@ -24,13 +24,37 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: '1em',
     },
   },
-  logo: {
-    display: 'block',
-    width: '100%',
-    height: 'auto',
-    backgroundColor: indigo[500],
-  },
 }));
+
+const logoStyles = makeStyles({
+  logo: {
+    paddingTop: '100%',
+    backgroundColor: indigo[500],
+    backgroundSize: 'cover',
+  },
+});
+
+const Logo = (logoName) => {
+  const classes = logoStyles();
+
+  const logoUrl = ({ logoName }) => {
+    const dir = '/images/logos/';
+    const defaultLogo = dir + 'default.png';
+
+    if (logoName !== '') {
+      return dir + logoName + '.jpg';
+    } else {
+      return defaultLogo;
+    }
+  };
+
+  return (
+    <div
+      className={classes.logo}
+      style={{ backgroundImage: `url(${logoUrl(logoName)})` }}
+    />
+  );
+};
 
 const Teams = ({ teams }) => {
   const classes = useStyles();
@@ -41,15 +65,7 @@ const Teams = ({ teams }) => {
         {teams.map((team) => (
           <Grid item xs={6} sm={3} key={team.name} className={classes.item}>
             <Paper square className={classes.card}>
-              <img
-                src={
-                  team.logoUrl
-                    ? `/images/logos/${team.logoUrl}.jpg`
-                    : '/images/logos/default.png'
-                }
-                alt={team.name}
-                className={classes.logo}
-              />
+              <Logo logoName={team.logoUrl} />
               <Box className={classes.nameWrap}>
                 <Typography
                   variant="caption"
