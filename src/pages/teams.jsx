@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { indigo } from '@material-ui/core/colors';
+import Router from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -56,6 +57,11 @@ const Logo = (logoName) => {
   );
 };
 
+const handleLink = (teamid) => {
+  const href = '/teams/' + teamid;
+  Router.push('/teams/[teamid]', href);
+};
+
 const Teams = ({ teams }) => {
   const classes = useStyles();
 
@@ -64,7 +70,11 @@ const Teams = ({ teams }) => {
       <Grid container spacing={1}>
         {teams.map((team) => (
           <Grid item xs={6} sm={3} key={team.name} className={classes.item}>
-            <Paper square className={classes.card}>
+            <Paper
+              square
+              onClick={() => handleLink(team.uid)}
+              className={classes.card}
+            >
               <Logo logoName={team.logoUrl} />
               <Box className={classes.nameWrap}>
                 <Typography
@@ -73,7 +83,7 @@ const Teams = ({ teams }) => {
                   className={classes.name}
                 >
                   [{team.tag}]
-                </Typography>{' '}
+                </Typography>
                 <Typography
                   variant="h6"
                   component="h2"
