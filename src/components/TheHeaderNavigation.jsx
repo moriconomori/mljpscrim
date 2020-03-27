@@ -50,11 +50,21 @@ const TheHeaderNavigation = () => {
   }));
 
   const classes = useStyles();
-  const [currentPathName, setCurrentPathName] = useState(router.pathname);
+
+  const getTabValue = (path) => {
+    if (path.startsWith('/teams')) {
+      return '/teams';
+    }
+    return path;
+  };
+
+  const [currentPathName, setCurrentPathName] = useState(
+    getTabValue(router.pathname)
+  );
 
   useEffect(() => {
     const handleRouteChange = (path) => {
-      setCurrentPathName(path);
+      setCurrentPathName(getTabValue(path));
     };
 
     Router.events.on('routeChangeStart', handleRouteChange);

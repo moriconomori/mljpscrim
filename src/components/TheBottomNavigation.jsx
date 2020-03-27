@@ -33,11 +33,19 @@ const TheBottomNavigation = () => {
   }));
 
   const classes = useStyles();
-  const [value, setValue] = useState(router.pathname);
+
+  const getNaviValue = (path) => {
+    if (path.startsWith('/teams')) {
+      return '/teams';
+    }
+    return path;
+  };
+
+  const [value, setValue] = useState(getNaviValue(router.pathname));
 
   useEffect(() => {
     const handleRouteChange = (path) => {
-      setValue(path);
+      setValue(getNaviValue(path));
     };
 
     Router.events.on('routeChangeStart', handleRouteChange);
