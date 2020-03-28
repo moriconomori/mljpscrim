@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import fetch from 'node-fetch';
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,6 +63,10 @@ const Teams = ({ teams }) => {
 
   return (
     <Box m={1}>
+      <Head>
+        <title>Teams | MLJP SCRIM</title>
+      </Head>
+
       <Grid container spacing={1}>
         {teams.map((team) => (
           <Grid item xs={6} sm={3} key={team.name} className={classes.item}>

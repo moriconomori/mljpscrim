@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -15,6 +16,10 @@ const About = () => {
 
   return (
     <Container>
+      <Head>
+        <title>About | MLJP SCRIM</title>
+      </Head>
+
       <Box mt={2}>
         <Typography variant="h5" component="h1" color="primary">
           MLJP SCRIM とは

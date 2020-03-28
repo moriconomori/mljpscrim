@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import fetch from 'node-fetch';
 import { makeStyles } from '@material-ui/core/styles';
@@ -148,6 +149,10 @@ const Team = ({ team }) => {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>{team.teamInfo.name} | Teams | MLJP SCRIM</title>
+      </Head>
+
       <Paper square>
         <div className={classes.teamHeader}>
           <div className={classes.logoWrap}>
