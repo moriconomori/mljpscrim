@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import fetch from 'node-fetch';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import ResultCard from '../components/ResultCard';
 
 const Stats = ({ stats }) => {
   const NoData = () => {
@@ -26,8 +27,11 @@ const Stats = ({ stats }) => {
         <title>Stats | MLJP SCRIM</title>
       </Head>
 
-      <span>Stats</span>
       <NoData />
+
+      {stats.map((stat) => (
+        <ResultCard stat={stat} key={stat.uid} />
+      ))}
     </React.Fragment>
   );
 };
