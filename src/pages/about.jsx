@@ -2,8 +2,17 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  list: {
+    paddingLeft: theme.spacing(2),
+  },
+}));
 
 const About = () => {
+  const classes = useStyles();
+
   return (
     <Container>
       <Box mt={2}>
@@ -32,7 +41,7 @@ const About = () => {
         1. 参加規則
       </Typography>
 
-      <ul>
+      <ul className={classes.list}>
         <li>当スクリムは 20 チームまでの参加枠とする</li>
         <li>
           参加チームは応募時に主要メンバーが 5 名以上、現ミシックである事とする
@@ -44,7 +53,7 @@ const About = () => {
         2. 運用規則
       </Typography>
 
-      <ul>
+      <ul className={classes.list}>
         <li>参加チームは最低週 1 回以上のスクリム要請を出す事とする</li>
         <li>
           参加要請は毎日 18:00
@@ -80,7 +89,7 @@ const About = () => {
         3. 当スクリム内での煽り暴言晒し
       </Typography>
 
-      <ul>
+      <ul className={classes.list}>
         <li>
           当スクリム内で発生した煽り暴言晒し行為については厳しく処罰するものとする
         </li>
@@ -109,14 +118,6 @@ const About = () => {
           基本は厳重注意だが極めて悪質と判断した場合のみ注意無しで参加を取り消す
         </li>
       </ul>
-      <style jsx>{`
-        ul {
-          padding-inline-start: 16px;
-        }
-        li {
-          line-height: 1.5;
-        }
-      `}</style>
 
       <Box mb={2}>
         <Typography variant="body1">以上</Typography>
