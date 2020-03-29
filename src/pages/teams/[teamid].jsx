@@ -97,7 +97,7 @@ const Links = ({ links }) => {
           <a href={link.url} target="_blank" rel="noopener noreferrer">
             <Avatar>
               <img
-                src={`/images/icons/${link.site}.png`}
+                src={`/images/icons/${link.site}-120x120.png`}
                 width="40"
                 height="40"
               />
