@@ -18,6 +18,9 @@ const Default = ({ children }) => {
     toolber: {
       justifyContent: 'space-between',
     },
+    title: {
+      display: 'flex',
+    },
   });
 
   const classes = useStyles();
@@ -45,7 +48,14 @@ const Default = ({ children }) => {
           <AppBar position={width < 600 ? 'static' : 'sticky'} color="default">
             <Container maxWidth="md" disableGutters>
               <Toolbar className={classes.toolber}>
-                <span>MLJP SCRIM</span>
+                <div className={classes.title}>
+                  <img
+                    src="/images/logos/mljpscrim-108x108.png"
+                    alt="MLJP SCRIM"
+                    width="36"
+                    height="36"
+                  />
+                </div>
                 <TheHeaderNavigation />
               </Toolbar>
             </Container>
