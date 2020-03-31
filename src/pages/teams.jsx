@@ -9,10 +9,12 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { indigo } from '@material-ui/core/colors';
 import Link from 'next/link';
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 const useStyles = makeStyles((theme) => ({
   card: {
     width: '100%',
+    height: '100%',
   },
   item: {
     display: 'flex',
@@ -71,25 +73,27 @@ const Teams = ({ teams }) => {
         {teams.map((team) => (
           <Grid item xs={6} sm={3} key={team.name} className={classes.item}>
             <Link href="/teams/[teamid]" as={`/teams/${team.uid}`}>
-              <Paper square className={classes.card}>
-                <Logo logoName={team.logoUrl} />
-                <Box className={classes.nameWrap}>
-                  <Typography
-                    variant="caption"
-                    color="primary"
-                    className={classes.name}
-                  >
-                    [{team.tag}]
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    component="h2"
-                    className={classes.name}
-                  >
-                    {team.name}
-                  </Typography>
-                </Box>
-              </Paper>
+              <CardActionArea component="div">
+                <Paper square className={classes.card}>
+                  <Logo logoName={team.logoUrl} />
+                  <Box className={classes.nameWrap}>
+                    <Typography
+                      variant="caption"
+                      color="primary"
+                      className={classes.name}
+                    >
+                      [{team.tag}]
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      component="h2"
+                      className={classes.name}
+                    >
+                      {team.name}
+                    </Typography>
+                  </Box>
+                </Paper>
+              </CardActionArea>
             </Link>
           </Grid>
         ))}
