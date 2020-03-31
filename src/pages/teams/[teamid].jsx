@@ -7,6 +7,7 @@ import { indigo } from '@material-ui/core/colors';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Icon from '@mdi/react';
 import { mdiLinkVariant } from '@mdi/js';
@@ -28,22 +29,38 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 2),
     wordBreak: 'break-word',
   },
-  memberHeader: {
-    margin: theme.spacing(1, 0),
+  teamName: {
+    [theme.breakpoints.up('sm')]: {
+      fontSize: theme.typography.h5.fontSize,
+    },
   },
-  memberList: {
-    '& > div': {
-      padding: theme.spacing(1),
+  item: {
+    [theme.breakpoints.down('xs')]: {
+      '&:not(:last-child) .MuiPaper-outlined': {
+        borderBottomStyle: 'none',
+      },
     },
-    '& > div:not(:last-child)': {
-      borderBottomStyle: 'none',
+    [theme.breakpoints.up('sm')]: {
+      '&:nth-child(2n + 3) .MuiPaper-outlined': {
+        borderTopStyle: 'none',
+      },
+      '&:nth-child(2n) .MuiPaper-outlined': {
+        borderLeftStyle: 'none',
+      },
+      '&:nth-child(2n + 4) .MuiPaper-outlined': {
+        borderTopStyle: 'none',
+      },
     },
+  },
+  member: {
+    height: '100%',
+    padding: theme.spacing(1, 2),
   },
 }));
 
 const Roles = ({ roles }) => {
   const useStyles = makeStyles((theme) => ({
-    rolesWrap: {
+    roles: {
       color: theme.palette.text.secondary,
     },
     role: {
@@ -59,7 +76,7 @@ const Roles = ({ roles }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.rolesWrap}>
+    <div className={classes.roles}>
       Role
       {roles.map((role) => (
         <Chip label={role} size="small" key={role} className={classes.role} />
@@ -74,7 +91,7 @@ Roles.propTypes = {
 
 const Links = ({ links }) => {
   const useStyles = makeStyles((theme) => ({
-    linksWrap: {
+    links: {
       display: 'flex',
       alignItems: 'center',
       '& svg path': {
@@ -90,7 +107,7 @@ const Links = ({ links }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.linksWrap}>
+    <div className={classes.links}>
       <Icon path={mdiLinkVariant} size={1} />
       {links.map((link) => (
         <IconButton aria-label={link.site} key={link.url}>
@@ -162,36 +179,40 @@ const Team = ({ team }) => {
             <Typography variant="body1" color="primary">
               [{team.teamInfo.tag}]
             </Typography>
-            <Typography variant="h6" component="h1">
+            <Typography
+              variant="h6"
+              component="h1"
+              className={classes.teamName}
+            >
               {team.teamInfo.name}
             </Typography>
           </div>
         </div>
       </Paper>
       <Box textAlign="right" p={1}>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" color="textSecondary" gutterBottom>
           参加日 {team.teamInfo.joinedAt}
         </Typography>
       </Box>
-      <div className={classes.memberWrap}>
-        <Typography
-          variant="h6"
-          component="h2"
-          color="primary"
-          className={classes.memberHeader}
-        >
-          メンバー
-        </Typography>
-        <div className={classes.memberList}>
-          {team.members.map((member) => (
-            <Paper variant="outlined" square key={member.name}>
+      <Typography variant="h6" component="h2" color="primary" gutterBottom>
+        メンバー
+      </Typography>
+      <Grid container className={classes.members}>
+        {team.members.map((member) => (
+          <Grid item xs={12} sm={6} key={member.name} className={classes.item}>
+            <Paper
+              variant="outlined"
+              square
+              key={member.name}
+              className={classes.member}
+            >
               <Typography variant="h6">{member.name}</Typography>
               <Roles roles={member.roles} />
               <Links links={member.links} />
             </Paper>
-          ))}
-        </div>
-      </div>
+          </Grid>
+        ))}
+      </Grid>
     </React.Fragment>
   );
 };
