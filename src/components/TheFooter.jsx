@@ -8,19 +8,19 @@ import Paper from '@material-ui/core/Paper';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   footer: {
     marginTop: 'auto',
     paddingBottom: 56,
-    '@media  (min-width: 600px)': {
+    [theme.breakpoints.up('sm')]: {
       paddingBottom: 0,
     },
   },
   link: {
-    padding: '0 8px',
+    padding: theme.spacing(0, 2),
     '&:active': { textDecorationLine: 'underline' },
   },
-});
+}));
 
 const FooterLink = ({ href, text }) => {
   const classes = useStyles();
@@ -53,13 +53,7 @@ const TheFooter = () => {
     <footer className={classes.footer}>
       <Paper elevation={0} square>
         <Container maxWidth="sm" disableGutters>
-          <Box
-            display="flex"
-            flexWrap="wrap"
-            justifyContent="space-around"
-            pt={1}
-            mb={1}
-          >
+          <Box display="flex" flexWrap="wrap" justifyContent="center" py={1}>
             <FooterLink href="/about" text="MLJP SCRIM とは" />
             <FooterLink href="/contact" text="お問い合わせ" />
           </Box>
