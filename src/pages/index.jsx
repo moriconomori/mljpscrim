@@ -9,6 +9,7 @@ import { mdiChevronRight } from '@mdi/js';
 import NewsList from '../components/NewsList';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
+import NextScrims from '../components/NextScrimsList';
 
 const useStyles = makeStyles((theme) => ({
   moreNews: {
@@ -27,6 +28,14 @@ const Index = ({ scrims, news }) => {
 
   return (
     <React.Fragment>
+      <Box px={1} my={1}>
+        <Typography variant="h6" component="h2" color="primary">
+          次のスクリム
+        </Typography>
+      </Box>
+
+      <NextScrims scrims={scrims} />
+
       <Box
         px={1}
         display="flex"
