@@ -4,7 +4,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import { grey } from '@material-ui/core/colors';
 import Icon from '@mdi/react';
-import { mdiHome, mdiAccountGroup, mdiTrophy, mdiNewspaper } from '@mdi/js';
+import { mdiHome, mdiAccountGroup, mdiNewspaper } from '@mdi/js';
 import Router, { useRouter } from 'next/router';
 
 const TheBottomNavigation = () => {
@@ -83,11 +83,6 @@ const TheBottomNavigation = () => {
         value="/teams"
         label="クラン"
         icon={<Icon path={mdiAccountGroup} size={1} />}
-      />
-      <BottomNavigationAction
-        value="/stats"
-        label="戦績"
-        icon={<Icon path={mdiTrophy} size={1} />}
       />
       <BottomNavigationAction
         value="/news"

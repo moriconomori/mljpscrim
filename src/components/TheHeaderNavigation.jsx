@@ -103,6 +103,7 @@ const TheHeaderNavigation = () => {
         label="戦績"
         value="/stats"
         onClick={() => Router.push('/stats')}
+        className={classes.displayNone}
       />
       <Tab
         icon={<Icon path={mdiNewspaper} size={1} />}
