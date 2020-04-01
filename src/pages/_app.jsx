@@ -26,6 +26,10 @@ export default class MyApp extends App {
         <Head>
           <title>MLJP SCRIM</title>
           <meta
+            name="description"
+            content="モバイル·レジェンド: Bang Bang (MLBB) の、日本で行われているスクリムの情報をまとめています。"
+          />
+          <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
