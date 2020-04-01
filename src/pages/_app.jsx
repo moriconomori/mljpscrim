@@ -34,6 +34,17 @@ export default class MyApp extends App {
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
           <link rel="icon" href="/favicon.ico" />
+          <meta property="og:site_name" content="MLJP SCRIM" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://scrim.mljp.ml/" />
+          <meta
+            property="og:image"
+            content="https://scrim.mljp.ml/images/logos/mljpscrim-512x512.png"
+          />
+          <meta
+            property="og:description"
+            content="モバイル·レジェンド: Bang Bang (MLBB) の、日本で行われているスクリムの情報をまとめています。"
+          />
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
