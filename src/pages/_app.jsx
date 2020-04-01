@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../theme';
 import Layout from '../layouts/default';
+import TagManager from 'react-gtm-module';
 
 export default class MyApp extends App {
   componentDidMount() {
@@ -13,6 +14,8 @@ export default class MyApp extends App {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
+
+    TagManager.initialize({ gtmId: 'GTM-T9V6SZV' });
   }
 
   render() {
