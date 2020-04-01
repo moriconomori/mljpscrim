@@ -134,11 +134,8 @@ const Contact = () => {
 
   const handleOnClickSend = () => {
     if (validate()) {
-      console.log('ok');
       setOpen(true);
-      return;
     }
-    console.log('ng');
   };
 
   const validate = () => {
@@ -173,10 +170,6 @@ const Contact = () => {
     return isValidated;
   };
 
-  const submit = () => {
-    console.log('submit');
-  };
-
   return (
     <React.Fragment>
       <Head>
@@ -189,63 +182,56 @@ const Contact = () => {
         </Typography>
       </Box>
 
-      <form
-        action="https://form.run/api/v1/r/2qbo2kxst2r6ymv2oojw86mh"
-        method="post"
-        onSubmit={submit}
-        className={classes.form}
-      >
-        <div className={classes.formItem}>
-          <TextField
-            id="name"
-            label="名前"
-            variant="outlined"
-            fullWidth
-            error={error.name}
-            value={value.name}
-            onChange={handleOnChangeName}
-            required
-          />
-          <FormHelperText id="name-helper-text" className={classes.helperText}>
-            {helperText.name}
-          </FormHelperText>
-        </div>
-        <div className={classes.formItem}>
-          <TextField
-            id="email"
-            label="メールアドレス"
-            variant="outlined"
-            fullWidth
-            error={error.email}
-            value={value.email}
-            onChange={handleOnChangeEmail}
-            required
-          />
-          <FormHelperText id="email-helper-text" className={classes.helperText}>
-            {helperText.email}
-          </FormHelperText>
-        </div>
-        <div className={classes.formItem}>
-          <TextField
-            id="body"
-            label="問い合わせ内容"
-            variant="outlined"
-            multiline
-            fullWidth
-            rows={8}
-            error={error.body}
-            value={value.body}
-            onChange={handleOnChangeBody}
-            required
-            className={classes.body}
-          />
-          <FormHelperText id="body-helper-text" className={classes.helperText}>
-            {helperText.body}
-          </FormHelperText>
-        </div>
+      <div className={classes.formItem}>
+        <TextField
+          id="name"
+          label="名前"
+          variant="outlined"
+          fullWidth
+          error={error.name}
+          value={value.name}
+          onChange={handleOnChangeName}
+          required
+        />
+        <FormHelperText id="name-helper-text" className={classes.helperText}>
+          {helperText.name}
+        </FormHelperText>
+      </div>
+      <div className={classes.formItem}>
+        <TextField
+          id="email"
+          label="メールアドレス"
+          variant="outlined"
+          fullWidth
+          error={error.email}
+          value={value.email}
+          onChange={handleOnChangeEmail}
+          required
+        />
+        <FormHelperText id="email-helper-text" className={classes.helperText}>
+          {helperText.email}
+        </FormHelperText>
+      </div>
+      <div className={classes.formItem}>
+        <TextField
+          id="body"
+          label="問い合わせ内容"
+          variant="outlined"
+          multiline
+          fullWidth
+          rows={8}
+          error={error.body}
+          value={value.body}
+          onChange={handleOnChangeBody}
+          required
+          className={classes.body}
+        />
+        <FormHelperText id="body-helper-text" className={classes.helperText}>
+          {helperText.body}
+        </FormHelperText>
+      </div>
 
-        <ConfirmDialog open={open} onClose={handleClose} value={value} />
-      </form>
+      <ConfirmDialog open={open} onClose={handleClose} value={value} />
 
       <Box my={4} mx={1}>
         <Button
