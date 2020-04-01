@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    padding: theme.spacing(0, 2),
+    margin: theme.spacing(0, 2),
+    cursor: 'pointer',
     '&:active': { textDecorationLine: 'underline' },
   },
 }));
