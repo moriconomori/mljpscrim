@@ -110,7 +110,7 @@ export async function getStaticProps() {
   const res = await fetch(
     'https://script.google.com/macros/s/AKfycbxtkRN9bqBbUyUj43B7epmVTkMz0LT5JK2Jx6qjxNuux2FZV4uu/exec'
   );
-  const teams = await res.json();
+  const teams = (await res.json()).filter((team) => team.isActive === true);
 
   return {
     props: {
