@@ -111,7 +111,12 @@ const Links = ({ links }) => {
       <Icon path={mdiLinkVariant} size={1} />
       {links.map((link) => (
         <IconButton aria-label={link.site} key={link.url}>
-          <a href={link.url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gtag-event"
+          >
             <Avatar>
               <img
                 src={`/images/icons/${link.site}-120x120.png`}
@@ -119,6 +124,7 @@ const Links = ({ links }) => {
                 height="40"
               />
             </Avatar>
+            <span style={{ display: 'none' }}>{link.site}</span>
           </a>
         </IconButton>
       ))}
