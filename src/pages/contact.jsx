@@ -24,11 +24,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const gtagSendEvent = (action) => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'contactForm',
+    contactFormAction: action,
+  });
+};
+
 const ConfirmDialog = (props) => {
   const { open, onClose, value } = props;
 
   const handleClose = () => {
     onClose(false);
+  };
+
+  const handleSubmit = () => {
+    gtagSendEvent('submit');
   };
 
   return (
@@ -62,7 +74,12 @@ const ConfirmDialog = (props) => {
           />
           <Box display="flex" justifyContent="space-between" px={1} pb={1}>
             <Button onClick={handleClose}>キャンセル</Button>
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              onClick={handleSubmit}
+            >
               送信
             </Button>
           </Box>
@@ -103,6 +120,8 @@ const Contact = () => {
 
   const handleClose = () => {
     setOpen(false);
+
+    gtagSendEvent('cancel');
   };
 
   const handleOnChangeName = (event) => {
@@ -136,6 +155,8 @@ const Contact = () => {
     if (validate()) {
       setOpen(true);
     }
+
+    gtagSendEvent('confirm');
   };
 
   const validate = () => {
